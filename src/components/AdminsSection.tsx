@@ -15,7 +15,7 @@ const admins = [
     badge: "★★★",
   },
   {
-    name: "Churumaais",
+    name: "Churrumaais",
     role: "Co-Admin & Constructor",
     tag: "CO-ADMIN",
     color: "#a855f7",
@@ -47,7 +47,7 @@ export default function AdminsSection() {
       <ScanLine delay={3.5} opacity={0.035} />
 
       {/* Flares */}
-      <Flare x="5%"  y="50%" size={260} color="#00d4ff" duration={14} delay={0.5} streaks />
+      <Flare x="5%" y="50%" size={260} color="#00d4ff" duration={14} delay={0.5} streaks />
       <Flare x="92%" y="25%" size={200} color="#a855f7" duration={11} delay={2} />
       <Flare x="50%" y="85%" size={240} color="#0066aa" duration={13} delay={1} />
 
