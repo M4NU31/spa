@@ -22,7 +22,7 @@ const slides = [
     id: 2,
     title: "THREE WORLDS",
     subtitle: "Explore Every Map",
-    tagline: "Astreos · Ragnarok · Rotative Server",
+    tagline: "Astreos · Valguero · Rotative Server",
     accent: "MULTIPLE REALMS",
     image: "/images/slide-astreus.jpg",
     tint: "from-[#05080e]/80 via-[#0d1a15]/50 to-[#05080e]/80",

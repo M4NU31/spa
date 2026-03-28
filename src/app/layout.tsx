@@ -18,7 +18,7 @@ const shareTechMono = Share_Tech_Mono({
 
 export const metadata: Metadata = {
   title: "Sephirot Ark | ARK Survival Ascended Server",
-  description: "Official Sephirot Ark server community. Join us on Astreos, Ragnarok, and rotative maps.",
+  description: "Official Sephirot Ark server community. Join us on Astreos, Valguero, and rotative maps.",
   other: {
     "build-time": new Date().toISOString(),
   },

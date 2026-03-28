@@ -57,25 +57,6 @@ import type { Translations } from "@/i18n/translations";
 function buildTabs(t: Translations): Tab[] {
   return [
     {
-      id: "mods",
-      label: t.info.tabs.mods,
-      icon: <Package size={16} />,
-      content: <ModList />,
-    },
-    {
-      id: "rules",
-      label: t.info.tabs.rules,
-      icon: <BookOpen size={16} />,
-      content: (
-        <div>
-          <div className="mb-4 text-[#7a9bb5] text-sm" style={{ fontFamily: "var(--font-share-tech)" }}>
-            {t.info.rulesDisclaimer}
-          </div>
-          {t.info.rules.map((rule, i) => <RuleItem key={i} number={i + 1} rule={rule} />)}
-        </div>
-      ),
-    },
-    {
       id: "rates",
       label: t.info.tabs.rates,
       icon: <Shield size={16} />,
@@ -104,6 +85,25 @@ function buildTabs(t: Translations): Tab[] {
               </div>
             </motion.div>
           ))}
+        </div>
+      ),
+    },
+    {
+      id: "mods",
+      label: t.info.tabs.mods,
+      icon: <Package size={16} />,
+      content: <ModList />,
+    },
+    {
+      id: "rules",
+      label: t.info.tabs.rules,
+      icon: <BookOpen size={16} />,
+      content: (
+        <div>
+          <div className="mb-4 text-[#7a9bb5] text-sm" style={{ fontFamily: "var(--font-share-tech)" }}>
+            {t.info.rulesDisclaimer}
+          </div>
+          {t.info.rules.map((rule, i) => <RuleItem key={i} number={i + 1} rule={rule} />)}
         </div>
       ),
     },

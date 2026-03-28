@@ -9,7 +9,7 @@ import { useLang } from "@/context/LanguageContext";
 
 const SERVER_CONFIG = [
   { label: "Astreos", ip: "" },
-  { label: "Ragnarok", bmId: "38435102" },
+  { label: "Valguero", bmId: "38435102" },
   { label: "Rotative", ip: "" },
 ];
 
@@ -27,7 +27,7 @@ const maps = [
   },
   {
     id: "ragnarok",
-    name: "Ragnarok",
+    name: "Valguero",
     type: "PERMANENT",
     difficulty: "Medium",
     description: "The massive Norse-inspired map combining the best of multiple worlds. Lush valleys, scorching deserts, and freezing peaks await in this expansive realm.",

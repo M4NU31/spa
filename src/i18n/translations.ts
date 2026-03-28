@@ -22,7 +22,7 @@ export const translations = {
           accent: "MÚLTIPLES MUNDOS",
           title: "TRES MUNDOS",
           subtitle: "Explora Cada Mapa",
-          tagline: "Astreos · Ragnarok · Servidor Rotativo",
+          tagline: "Astreos · Valguero · Servidor Rotativo",
         },
         {
           accent: "COMUNIDAD ACTIVA",
@@ -54,7 +54,7 @@ export const translations = {
           features: ["Biomas Personalizados", "Dinos Exclusivos", "XP Aumentado", "Drops Especiales"],
         },
         {
-          name: "Ragnarok",
+          name: "Valguero",
           difficulty: "Medio",
           description: "El enorme mapa inspirado en la mitología nórdica que combina lo mejor de varios mundos. Valles fértiles, desiertos abrasadores y picos helados te esperan en este vasto reino.",
           features: ["Nidos de Wyvern", "Griffins", "Recursos Abundantes", "Ruinas del Castillo"],
@@ -75,7 +75,7 @@ export const translations = {
         commands: "Comandos",
         mods: "Mods",
         rules: "Reglas",
-        rates: "Tasas",
+        rates: "Estadísticas",
       },
       commands: [
         { cmd: "/kit starter",    desc: "Reclamar el kit inicial (una vez por personaje)" },
@@ -216,7 +216,7 @@ export const translations = {
           accent: "MULTIPLE REALMS",
           title: "THREE WORLDS",
           subtitle: "Explore Every Map",
-          tagline: "Astreos · Ragnarok · Rotative Server",
+          tagline: "Astreos · Valguero · Rotative Server",
         },
         {
           accent: "ACTIVE COMMUNITY",
@@ -248,7 +248,7 @@ export const translations = {
           features: ["Custom Biomes", "Exclusive Dinos", "High XP Rates", "Custom Drops"],
         },
         {
-          name: "Ragnarok",
+          name: "Valguero",
           difficulty: "Medium",
           description: "The massive Norse-inspired map combining the best of multiple worlds. Lush valleys, scorching deserts, and freezing peaks await in this expansive realm.",
           features: ["Wyvern Nests", "Griffin Spawns", "Rich Resources", "Castle Ruins"],
