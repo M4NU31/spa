@@ -8,9 +8,9 @@ import { Flare, ScanLine, DrawLine } from "./SceneEffects";
 import { useLang } from "@/context/LanguageContext";
 
 const SERVER_CONFIG = [
-  { label: "Astreos", ip: "" },
+  { label: "Astreos",  bmId: "38460621" },
   { label: "Valguero", bmId: "38435102" },
-  { label: "Rotative", ip: "" },
+  { label: "Rotative", bmId: "38460546", rotative: true },
 ];
 
 const maps = [
@@ -198,6 +198,17 @@ export default function MapsSection() {
                   </div>
 
                   <div className="h-px mb-5 transition-all duration-300" style={{ background: `linear-gradient(90deg, ${map.color}40, transparent)` }} />
+
+                  {map.type === "ROTATING" && srv?.map && !srv.loading && (
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="text-[10px] tracking-widest uppercase" style={{ color: map.color, fontFamily: "var(--font-share-tech)" }}>
+                        {t.maps.currentMap}
+                      </span>
+                      <span className="text-[11px] text-white font-medium" style={{ fontFamily: "var(--font-orbitron)" }}>
+                        {srv.map}
+                      </span>
+                    </div>
+                  )}
 
                   <p className="text-[#7a9bb5] text-sm leading-relaxed mb-5" style={{ fontFamily: "var(--font-share-tech)" }}>
                     {t.maps.maps[idx].description}

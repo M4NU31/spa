@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 export type ServerStatus = {
   label: string;
@@ -62,12 +62,15 @@ async function fetchById(id: string): Promise<RawStatus> {
   };
 }
 
-type ServerConfig = { ip?: string; bmId?: string; label: string };
+type ServerConfig = { ip?: string; bmId?: string; label: string; rotative?: boolean };
 
 export function useServerStatus(servers: ServerConfig[], refreshMs = 120_000) {
   const [statuses, setStatuses] = useState<ServerStatus[]>(
     servers.map((s) => ({ ...DEFAULT, label: s.label }))
   );
+
+  // Track the last known map for rotative servers to detect map changes
+  const prevMapsRef = useRef<Record<string, string>>({});
 
   const refresh = useCallback(async () => {
     const results = await Promise.all(
@@ -82,7 +85,26 @@ export function useServerStatus(servers: ServerConfig[], refreshMs = 120_000) {
         }
       })
     );
+
+    // Check if any rotative server changed its map
+    let mapChanged = false;
+    results.forEach((r) => {
+      const config = servers.find((s) => s.label === r.label);
+      if (config?.rotative && r.map && prevMapsRef.current[r.label]) {
+        if (prevMapsRef.current[r.label] !== r.map) {
+          mapChanged = true;
+        }
+      }
+      if (r.map) prevMapsRef.current[r.label] = r.map;
+    });
+
     setStatuses(results);
+
+    // If the rotative map changed, schedule an extra refresh in 10s
+    // to let BM propagate updated player counts for the new map
+    if (mapChanged) {
+      setTimeout(() => refresh(), 10_000);
+    }
   }, [servers]);
 
   useEffect(() => {

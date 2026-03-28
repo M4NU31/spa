@@ -46,6 +46,7 @@ export const translations = {
       online: "En línea",
       offline: "Desconectado",
       difficulty: "Dificultad",
+      currentMap: "Mapa Actual:",
       maps: [
         {
           name: "Astreos",
@@ -240,6 +241,7 @@ export const translations = {
       online: "Online",
       offline: "Offline",
       difficulty: "Difficulty",
+      currentMap: "Current Map:",
       maps: [
         {
           name: "Astreos",
