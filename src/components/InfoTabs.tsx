@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Terminal, Package, BookOpen, Shield, ChevronRight, ChevronDown } from "lucide-react";
+import { Package, BookOpen, Shield, ChevronRight, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Flare, ScanLine, DrawLine } from "./SceneEffects";
 import ModList from "./ModList";
@@ -14,32 +14,6 @@ type Tab = {
   content: React.ReactNode;
 };
 
-function CommandList({ items }: { items: { cmd: string; desc: string }[] }) {
-  return (
-    <div className="space-y-3">
-      {items.map((item, i) => (
-        <motion.div
-          key={i}
-          className="flex items-start gap-4 group"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3, delay: i * 0.05 }}
-        >
-          <div
-            className="shrink-0 bg-[#070b0f] border border-[#1a2535] group-hover:border-[#00d4ff]/40 px-3 py-1.5 min-w-[130px] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-share-tech)" }}
-          >
-            <span className="text-[#00d4ff] text-xs">{item.cmd}</span>
-          </div>
-          <div className="flex items-center gap-2 mt-1.5">
-            <ChevronRight size={10} className="text-[#1a2535] group-hover:text-[#00d4ff]/40 transition-colors shrink-0" />
-            <span className="text-[#7a9bb5] text-sm" style={{ fontFamily: "var(--font-share-tech)" }}>{item.desc}</span>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
 
 function ModCard({ name, desc, category, index }: { name: string; desc: string; category: string; index: number }) {
   return (
@@ -82,12 +56,6 @@ import type { Translations } from "@/i18n/translations";
 
 function buildTabs(t: Translations): Tab[] {
   return [
-    {
-      id: "commands",
-      label: t.info.tabs.commands,
-      icon: <Terminal size={16} />,
-      content: <CommandList items={[...t.info.commands]} />,
-    },
     {
       id: "mods",
       label: t.info.tabs.mods,
