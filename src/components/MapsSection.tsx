@@ -8,7 +8,7 @@ import { Flare, ScanLine, DrawLine } from "./SceneEffects";
 import { useLang } from "@/context/LanguageContext";
 
 const SERVER_CONFIG = [
-  { label: "Astreos",  ip: "" },
+  { label: "Astreos", ip: "" },
   { label: "Ragnarok", bmId: "38435102" },
   { label: "Rotative", ip: "" },
 ];
@@ -120,107 +120,106 @@ export default function MapsSection() {
           {maps.map((map, idx) => {
             const srv = serverStatuses[idx];
             return (
-            <motion.div
-              key={map.id}
-              custom={idx}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              onMouseEnter={() => setHovered(map.id)}
-              onMouseLeave={() => setHovered(null)}
-              className={`relative group border transition-colors duration-300 cursor-pointer overflow-hidden ${
-                hovered === map.id ? "border-[var(--map-color)] bg-[#0d1117]" : "border-[#1a2535] bg-[#0d1117]/60"
-              }`}
-              style={{ "--map-color": map.color } as React.CSSProperties}
-            >
-              {/* Top color bar */}
-              <div
-                className="h-1 w-full transition-all duration-300"
-                style={{
-                  background: hovered === map.id
-                    ? `linear-gradient(90deg, transparent, ${map.color}, transparent)`
-                    : `linear-gradient(90deg, transparent, ${map.color}33, transparent)`,
-                }}
-              />
-
-              {/* Corner decoration */}
-              <div
-                className="absolute top-0 right-0 w-0 h-0 transition-all duration-300"
-                style={{
-                  borderLeft: "20px solid transparent",
-                  borderTop: `20px solid ${hovered === map.id ? map.color : "transparent"}`,
-                }}
-              />
-
-              <div className={`absolute inset-0 bg-gradient-to-br ${map.accentBg} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-
-              <div className="relative z-10 p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <div
-                      className="text-[10px] tracking-[0.3em] uppercase mb-1 font-medium"
-                      style={{ color: map.color, fontFamily: "var(--font-share-tech)" }}
-                    >
-                      {map.type === "PERMANENT" ? t.maps.permanent : t.maps.rotating}
-                    </div>
-                    <h3 className="text-2xl font-black text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
-                      {t.maps.maps[idx].name}
-                    </h3>
-                  </div>
-                  <span className="text-3xl">{map.icon}</span>
-                </div>
-
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="flex items-center gap-1.5">
-                    {srv?.loading ? (
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#1a2535] animate-pulse" />
-                    ) : (
-                      <div className={`w-1.5 h-1.5 rounded-full ${srv?.online ? "bg-emerald-400 animate-pulse" : "bg-red-500/60"}`} />
-                    )}
-                    <span
-                      className={`text-[11px] ${srv?.loading ? "text-[#1a2535]" : srv?.online ? "text-emerald-400" : "text-red-500/60"}`}
-                      style={{ fontFamily: "var(--font-share-tech)" }}
-                    >
-                      {srv?.loading ? "—" : srv?.online ? t.maps.online : t.maps.offline}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-[#7a9bb5]">
-                    <Users size={12} />
-                    <span className="text-[11px]" style={{ fontFamily: "var(--font-share-tech)" }}>
-                      {srv?.loading ? "—" : srv?.error ? "—" : `${srv?.players}/${srv?.maxPlayers}`}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-[#7a9bb5]">
-                    <Cpu size={12} />
-                    <span className="text-[11px]" style={{ fontFamily: "var(--font-share-tech)" }}>{t.maps.maps[idx].difficulty}</span>
-                  </div>
-                </div>
-
-                <div className="h-px mb-5 transition-all duration-300" style={{ background: `linear-gradient(90deg, ${map.color}40, transparent)` }} />
-
-                <p className="text-[#7a9bb5] text-sm leading-relaxed mb-5" style={{ fontFamily: "var(--font-share-tech)" }}>
-                  {t.maps.maps[idx].description}
-                </p>
-
-                <div className="grid grid-cols-2 gap-2 mb-6">
-                  {t.maps.maps[idx].features.map((f) => (
-                    <div key={f} className="flex items-center gap-2">
-                      <ChevronRight size={10} style={{ color: map.color }} />
-                      <span className="text-[11px] text-[#7a9bb5]" style={{ fontFamily: "var(--font-share-tech)" }}>{f}</span>
-                    </div>
-                  ))}
-                </div>
-
+              <motion.div
+                key={map.id}
+                custom={idx}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                onMouseEnter={() => setHovered(map.id)}
+                onMouseLeave={() => setHovered(null)}
+                className={`relative group border transition-colors duration-300 cursor-pointer overflow-hidden ${hovered === map.id ? "border-[var(--map-color)] bg-[#0d1117]" : "border-[#1a2535] bg-[#0d1117]/60"
+                  }`}
+                style={{ "--map-color": map.color } as React.CSSProperties}
+              >
+                {/* Top color bar */}
                 <div
-                  className="absolute bottom-4 right-6 text-6xl font-black opacity-5"
-                  style={{ fontFamily: "var(--font-orbitron)", color: map.color }}
-                >
-                  {String(idx + 1).padStart(2, "0")}
+                  className="h-1 w-full transition-all duration-300"
+                  style={{
+                    background: hovered === map.id
+                      ? `linear-gradient(90deg, transparent, ${map.color}, transparent)`
+                      : `linear-gradient(90deg, transparent, ${map.color}33, transparent)`,
+                  }}
+                />
+
+                {/* Corner decoration */}
+                <div
+                  className="absolute top-0 right-0 w-0 h-0 transition-all duration-300"
+                  style={{
+                    borderLeft: "20px solid transparent",
+                    borderTop: `20px solid ${hovered === map.id ? map.color : "transparent"}`,
+                  }}
+                />
+
+                <div className={`absolute inset-0 bg-gradient-to-br ${map.accentBg} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+
+                <div className="relative z-10 p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <div
+                        className="text-[10px] tracking-[0.3em] uppercase mb-1 font-medium"
+                        style={{ color: map.color, fontFamily: "var(--font-share-tech)" }}
+                      >
+                        {map.type === "PERMANENT" ? t.maps.permanent : t.maps.rotating}
+                      </div>
+                      <h3 className="text-2xl font-black text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+                        {t.maps.maps[idx].name}
+                      </h3>
+                    </div>
+                    <span className="text-3xl">{map.icon}</span>
+                  </div>
+
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="flex items-center gap-1.5">
+                      {srv?.loading ? (
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#1a2535] animate-pulse" />
+                      ) : (
+                        <div className={`w-1.5 h-1.5 rounded-full ${srv?.online ? "bg-emerald-400 animate-pulse" : "bg-red-500/60"}`} />
+                      )}
+                      <span
+                        className={`text-[11px] ${srv?.loading ? "text-[#1a2535]" : srv?.online ? "text-emerald-400" : "text-red-500/60"}`}
+                        style={{ fontFamily: "var(--font-share-tech)" }}
+                      >
+                        {srv?.loading ? "—" : srv?.online ? t.maps.online : t.maps.offline}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-[#7a9bb5]">
+                      <Users size={12} />
+                      <span className="text-[11px]" style={{ fontFamily: "var(--font-share-tech)" }}>
+                        {srv?.loading ? "—" : srv?.error ? "—" : `${srv?.players}/${srv?.maxPlayers}`}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-[#7a9bb5]">
+                      <Cpu size={12} />
+                      <span className="text-[11px]" style={{ fontFamily: "var(--font-share-tech)" }}>{t.maps.maps[idx].difficulty}</span>
+                    </div>
+                  </div>
+
+                  <div className="h-px mb-5 transition-all duration-300" style={{ background: `linear-gradient(90deg, ${map.color}40, transparent)` }} />
+
+                  <p className="text-[#7a9bb5] text-sm leading-relaxed mb-5" style={{ fontFamily: "var(--font-share-tech)" }}>
+                    {t.maps.maps[idx].description}
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-2 mb-6">
+                    {t.maps.maps[idx].features.map((f) => (
+                      <div key={f} className="flex items-center gap-2">
+                        <ChevronRight size={10} style={{ color: map.color }} />
+                        <span className="text-[11px] text-[#7a9bb5]" style={{ fontFamily: "var(--font-share-tech)" }}>{f}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div
+                    className="absolute bottom-4 right-6 text-6xl font-black opacity-5"
+                    style={{ fontFamily: "var(--font-orbitron)", color: map.color }}
+                  >
+                    {String(idx + 1).padStart(2, "0")}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
             );
           })}
         </div>
@@ -232,7 +231,7 @@ export default function MapsSection() {
               {Array(4).fill(null).map((_, i) => (
                 <span key={i} className="flex items-center gap-8">
                   <span className="text-[#00d4ff]/20">◆</span>
-                  <span>ASTREUS</span>
+                  <span>Astreos</span>
                   <span className="text-[#00d4ff]/20">◆</span>
                   <span>RAGNAROK</span>
                   <span className="text-[#00d4ff]/20">◆</span>
