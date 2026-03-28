@@ -22,7 +22,7 @@ export const translations = {
           accent: "MÚLTIPLES MUNDOS",
           title: "TRES MUNDOS",
           subtitle: "Explora Cada Mapa",
-          tagline: "Astreus · Ragnarok · Servidor Rotativo",
+          tagline: "Astreos · Ragnarok · Servidor Rotativo",
         },
         {
           accent: "COMUNIDAD ACTIVA",
@@ -48,7 +48,7 @@ export const translations = {
       difficulty: "Dificultad",
       maps: [
         {
-          name: "Astreus",
+          name: "Astreos",
           difficulty: "Difícil",
           description: "Un mapa personalizado único con paisajes alienígenas, criaturas de alto nivel y recursos exclusivos. Diseñado para sobrevivientes experimentados que buscan el desafío definitivo.",
           features: ["Biomas Personalizados", "Dinos Exclusivos", "XP Aumentado", "Drops Especiales"],
@@ -216,7 +216,7 @@ export const translations = {
           accent: "MULTIPLE REALMS",
           title: "THREE WORLDS",
           subtitle: "Explore Every Map",
-          tagline: "Astreus · Ragnarok · Rotative Server",
+          tagline: "Astreos · Ragnarok · Rotative Server",
         },
         {
           accent: "ACTIVE COMMUNITY",
@@ -242,7 +242,7 @@ export const translations = {
       difficulty: "Difficulty",
       maps: [
         {
-          name: "Astreus",
+          name: "Astreos",
           difficulty: "Hard",
           description: "A unique custom map featuring alien landscapes, high-tier creatures, and exclusive resources. Designed for experienced survivors who seek the ultimate challenge.",
           features: ["Custom Biomes", "Exclusive Dinos", "High XP Rates", "Custom Drops"],

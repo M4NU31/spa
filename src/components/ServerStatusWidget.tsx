@@ -11,7 +11,7 @@ import { useLang } from "@/context/LanguageContext";
 // Get your BM IDs from: https://www.battlemetrics.com/servers/arksa
 const SERVER_CONFIG = [
   { label: "Ragnarok", bmId: "38435102" },
-  { label: "Astreus",  ip: "" },   // add bmId or ip when ready
+  { label: "Astreos",  ip: "" },   // add bmId or ip when ready
   { label: "Rotative", ip: "" },   // add bmId or ip when ready
 ];
 // ─────────────────────────────────────────────────────────────────

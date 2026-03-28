@@ -8,7 +8,7 @@ import { Flare, ScanLine, DrawLine } from "./SceneEffects";
 import { useLang } from "@/context/LanguageContext";
 
 const SERVER_CONFIG = [
-  { label: "Astreus",  ip: "" },
+  { label: "Astreos",  ip: "" },
   { label: "Ragnarok", bmId: "38435102" },
   { label: "Rotative", ip: "" },
 ];
@@ -16,7 +16,7 @@ const SERVER_CONFIG = [
 const maps = [
   {
     id: "astreus",
-    name: "Astreus",
+    name: "Astreos",
     type: "PERMANENT",
     difficulty: "Hard",
     description: "A unique custom map featuring alien landscapes, high-tier creatures, and exclusive resources. Designed for experienced survivors who seek the ultimate challenge.",
