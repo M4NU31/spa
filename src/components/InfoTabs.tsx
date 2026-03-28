@@ -86,7 +86,7 @@ function buildTabs(t: Translations): Tab[] {
       id: "commands",
       label: t.info.tabs.commands,
       icon: <Terminal size={16} />,
-      content: <CommandList items={t.info.commands as { cmd: string; desc: string }[]} />,
+      content: <CommandList items={[...t.info.commands]} />,
     },
     {
       id: "mods",
