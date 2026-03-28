@@ -15,7 +15,7 @@ const admins = [
     badge: "★★★",
   },
   {
-    name: "Putimaais",
+    name: "Churrumaais",
     role: "Co-Admin & Constructor",
     tag: "CO-ADMIN",
     color: "#a855f7",
