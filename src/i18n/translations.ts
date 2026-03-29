@@ -57,8 +57,8 @@ export const translations = {
         {
           name: "Valguero",
           difficulty: "Medio",
-          description: "El enorme mapa inspirado en la mitología nórdica que combina lo mejor de varios mundos. Valles fértiles, desiertos abrasadores y picos helados te esperan en este vasto reino.",
-          features: ["Nidos de Wyvern", "Griffins", "Recursos Abundantes", "Ruinas del Castillo"],
+          description: "Un vasto mapa con paisajes variados que van desde praderas verdes y cañones profundos hasta glaciares helados. Hogar de los Deinonychus y con una enorme cueva subterránea llena de secretos.",
+          features: ["Deinonychus", "Cueva Subterránea", "Glaciares y Cañones", "Aberración Oculta"],
         },
         {
           name: "Servidor Rotativo",
@@ -252,8 +252,8 @@ export const translations = {
         {
           name: "Valguero",
           difficulty: "Medium",
-          description: "The massive Norse-inspired map combining the best of multiple worlds. Lush valleys, scorching deserts, and freezing peaks await in this expansive realm.",
-          features: ["Wyvern Nests", "Griffin Spawns", "Rich Resources", "Castle Ruins"],
+          description: "A vast map with diverse landscapes ranging from green meadows and deep canyons to frozen glaciers. Home of the Deinonychus and featuring a massive underground cave filled with secrets.",
+          features: ["Deinonychus", "Underground Cave", "Glaciers & Canyons", "Hidden Aberration"],
         },
         {
           name: "Rotative Server",
