@@ -68,6 +68,13 @@ export const translations = {
         },
       ],
     },
+    calendar: {
+      sectionLabel: "Servidor Rotativo",
+      title: "CALENDARIO",
+      titleHighlight: "DE MAPAS",
+      todayMap: "Mapa de hoy",
+      live: "En vivo ahora",
+    },
     events: {
       sectionLabel: "Sephirot Ark",
       title: "EVENTOS",
@@ -270,6 +277,13 @@ export const translations = {
           features: ["Rotating Maps", "Special Events", "Fresh Start", "Community Vote"],
         },
       ],
+    },
+    calendar: {
+      sectionLabel: "Rotative Server",
+      title: "MAP",
+      titleHighlight: "CALENDAR",
+      todayMap: "Today's map",
+      live: "Live now",
     },
     events: {
       sectionLabel: "Sephirot Ark",

@@ -5,6 +5,7 @@ import IntroAnimation from "./IntroAnimation";
 import Header from "./Header";
 import HeroBanner from "./HeroBanner";
 import MapsSection from "./MapsSection";
+import RotativeCalendar from "./RotativeCalendar";
 import EventsSection from "./EventsSection";
 import InfoTabs from "./InfoTabs";
 import AdminsSection from "./AdminsSection";
@@ -23,6 +24,7 @@ export default function PageShell() {
         <main>
           <HeroBanner />
           <MapsSection />
+          <RotativeCalendar />
           <EventsSection />
           <InfoTabs />
           <AdminsSection />
