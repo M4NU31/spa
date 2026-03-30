@@ -117,20 +117,56 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — full screen overlay */}
       {menuOpen && (
-        <div className="md:hidden bg-[#0d1117]/98 border-t border-[#1a2535] px-6 py-4 flex flex-col gap-3">
-          {navLinks.map((link) => (
+        <div className="md:hidden fixed inset-0 z-40 bg-[#070b0f]/98 backdrop-blur-md flex flex-col">
+          {/* Top bar mirrors the header */}
+          <div className="flex items-center justify-between px-6 py-3 border-b border-[#1a2535]">
+            <a href="#home" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
+              <div className="relative w-9 h-9 flex items-center justify-center">
+                <div className="absolute inset-0 border border-[#00d4ff] rotate-45" />
+                <Zap size={16} className="text-[#00d4ff] relative z-10" />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="text-[#00d4ff] font-black tracking-[0.2em] text-lg uppercase" style={{ fontFamily: "var(--font-orbitron)" }}>Sephirot</span>
+                <span className="text-[#7a9bb5] text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>ARK · Ascended</span>
+              </div>
+            </a>
+            <button className="text-[#00d4ff] p-2" onClick={() => setMenuOpen(false)}>
+              <X size={22} />
+            </button>
+          </div>
+
+          {/* Nav links */}
+          <nav className="flex flex-col flex-1 justify-center px-10 gap-2">
+            {navLinks.map((link, i) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => { setActive(link.href); setMenuOpen(false); }}
+                className={`text-3xl font-black tracking-[0.1em] uppercase py-3 border-b border-[#1a2535] transition-colors duration-200 ${
+                  active === link.href ? "text-[#00d4ff]" : "text-[#7a9bb5] hover:text-[#00d4ff]"
+                }`}
+                style={{ fontFamily: "var(--font-orbitron)", animationDelay: `${i * 60}ms` }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Bottom: lang toggle + discord */}
+          <div className="px-10 py-8 flex items-center justify-between border-t border-[#1a2535]">
+            <LangToggle />
             <a
-              key={link.href}
-              href={link.href}
-              onClick={() => { setActive(link.href); setMenuOpen(false); }}
-              className="text-[#7a9bb5] hover:text-[#00d4ff] text-sm tracking-widest uppercase py-2 border-b border-[#1a2535]"
+              href="https://discord.gg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2 border border-[#00d4ff] text-[#00d4ff] text-xs tracking-[0.15em] uppercase hover:bg-[#00d4ff]/10 transition-all duration-200"
               style={{ fontFamily: "var(--font-share-tech)" }}
             >
-              {link.label}
+              {t.nav.joinDiscord}
             </a>
-          ))}
+          </div>
         </div>
       )}
     </header>
