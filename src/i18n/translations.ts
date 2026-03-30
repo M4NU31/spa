@@ -68,6 +68,14 @@ export const translations = {
         },
       ],
     },
+    events: {
+      sectionLabel: "Temporada 3",
+      title: "EVENTOS",
+      titleHighlight: "ACTIVOS",
+      empty: "Sin señal de actividad detectada",
+      emptySub: "El campo de batalla está en calma... por ahora. Los eventos se publicarán aquí cuando estén disponibles.",
+      emptyTag: "TRANSMISIÓN EN ESPERA",
+    },
     info: {
       sectionLabel: "Info del Servidor",
       title: "LO QUE DEBES",
@@ -262,6 +270,14 @@ export const translations = {
           features: ["Seasonal Maps", "Special Events", "Fresh Start", "Community Vote"],
         },
       ],
+    },
+    events: {
+      sectionLabel: "Season 3",
+      title: "ACTIVE",
+      titleHighlight: "EVENTS",
+      empty: "No activity signal detected",
+      emptySub: "The battlefield is quiet... for now. Events will be posted here as soon as they go live.",
+      emptyTag: "BROADCAST STANDING BY",
     },
     info: {
       sectionLabel: "Server Info",
