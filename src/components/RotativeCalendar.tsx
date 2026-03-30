@@ -12,13 +12,13 @@ import { useLang } from "@/context/LanguageContext";
 const ANCHOR = Date.UTC(2025, 2, 30); // months are 0-indexed
 
 const ROTATION = [
-  { key: "TheIsland_WP",  en: "The Island",     es: "The Island",      color: "#00d4ff" },
-  { key: "ScorchedEarth", en: "Scorched Earth",  es: "Scorched Earth",  color: "#ff6b35" },
-  { key: "TheCenter",     en: "The Center",      es: "The Center",      color: "#a855f7" },
-  { key: "Aberration",    en: "Aberration",      es: "Aberración",      color: "#22c55e" },
-  { key: "Ragnarok",      en: "Ragnarok",        es: "Ragnarok",        color: "#f59e0b" },
-  { key: "Extinction",    en: "Extinction",      es: "Extinción",       color: "#ef4444" },
-  { key: "LostColony",    en: "Lost Colony",     es: "Colonia Perdida", color: "#06b6d4" },
+  { key: "TheIsland_WP",  label: "The Island",     color: "#00d4ff" },
+  { key: "ScorchedEarth", label: "Scorched Earth",  color: "#ff6b35" },
+  { key: "TheCenter",     label: "The Center",      color: "#a855f7" },
+  { key: "Aberration",    label: "Aberration",      color: "#22c55e" },
+  { key: "Ragnarok",      label: "Ragnarok",        color: "#f59e0b" },
+  { key: "Extinction",    label: "Extinction",      color: "#ef4444" },
+  { key: "LostColony",    label: "Lost Colony",     color: "#06b6d4" },
 ];
 // ─────────────────────────────────────────────────────────────────
 
@@ -132,7 +132,7 @@ export default function RotativeCalendar() {
               {t.calendar.todayMap}
             </div>
             <div className="text-2xl font-black text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
-              {lang === "es" ? todayMap.es : todayMap.en}
+              {todayMap.label}
             </div>
           </div>
           <div className="sm:ml-auto flex items-center gap-2">
@@ -194,7 +194,7 @@ export default function RotativeCalendar() {
                 <div className="w-2 h-2 rounded-full shrink-0" style={{ background: cell.map.color }} />
                 <span className="text-sm font-medium"
                       style={{ color: cell.map.color + (cell.isToday ? "ff" : "99"), fontFamily: "var(--font-share-tech)" }}>
-                  {lang === "es" ? cell.map.es : cell.map.en}
+                  {cell.map.label}
                 </span>
               </div>
 
@@ -283,7 +283,7 @@ export default function RotativeCalendar() {
                       fontFamily: "var(--font-share-tech)",
                     }}
                   >
-                    {lang === "es" ? cell.map.es : cell.map.en}
+                    {cell.map.label}
                   </span>
                   {isToday && (
                     <motion.div
@@ -314,7 +314,7 @@ export default function RotativeCalendar() {
               style={{ fontFamily: "var(--font-share-tech)" }}
             >
               <div className="w-2 h-2 rounded-full" style={{ background: m.color }} />
-              <span style={{ color: m.color + "cc" }}>{lang === "es" ? m.es : m.en}</span>
+              <span style={{ color: m.color + "cc" }}>{m.label}</span>
             </div>
           ))}
         </motion.div>
