@@ -199,7 +199,7 @@ export default function RotativeCalendar() {
                     {String(cell.day).padStart(2, "0")}
                   </span>
                   <span
-                    className="text-[9px] leading-tight"
+                    className="text-[11px] leading-tight"
                     style={{
                       color: cell.map.color + (isToday ? "ff" : "70"),
                       fontFamily: "var(--font-share-tech)",
