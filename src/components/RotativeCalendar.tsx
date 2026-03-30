@@ -64,6 +64,24 @@ export default function RotativeCalendar() {
     return result;
   }, [year, month]);
 
+  // Current week (Sun→Sat) for mobile list view
+  const weekCells = useMemo(() => {
+    const startOfWeek = new Date(today);
+    startOfWeek.setDate(today.getDate() - today.getDay());
+    const locale = lang === "es" ? "es-ES" : "en-US";
+    return Array.from({ length: 7 }, (_, i) => {
+      const d = new Date(startOfWeek);
+      d.setDate(startOfWeek.getDate() + i);
+      return {
+        date: d,
+        dayName: new Intl.DateTimeFormat(locale, { weekday: "short" }).format(d),
+        dayNum: d.getDate(),
+        map: mapForDate(d),
+        isToday: d.toDateString() === today.toDateString(),
+      };
+    });
+  }, [today, lang]);
+
   const todayDate = today.getDate();
 
   return (
@@ -133,9 +151,69 @@ export default function RotativeCalendar() {
           </div>
         </motion.div>
 
-        {/* Calendar grid */}
+        {/* Mobile: weekly list */}
         <motion.div
-          className="border border-[#1a2535] bg-[#070b0f]/60 overflow-hidden"
+          className="md:hidden flex flex-col border border-[#1a2535] bg-[#070b0f]/60 overflow-hidden mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="px-5 py-3 border-b border-[#1a2535] flex items-center justify-between">
+            <span className="text-white font-black uppercase tracking-widest text-xs capitalize"
+                  style={{ fontFamily: "var(--font-orbitron)" }}>
+              {monthLabel}
+            </span>
+            <MapPin size={12} className="text-[#00d4ff]" />
+          </div>
+          {weekCells.map((cell) => (
+            <motion.div
+              key={cell.dayNum}
+              className={`flex items-center gap-4 px-5 py-3 border-b border-[#1a2535]/40 last:border-0 ${
+                cell.isToday ? "bg-[#0d1117]" : ""
+              }`}
+              style={cell.isToday ? { borderLeftColor: cell.map.color, borderLeftWidth: 3 } : {}}
+            >
+              {/* Day */}
+              <div className="w-10 shrink-0">
+                <div className="text-[10px] uppercase tracking-widest"
+                     style={{ color: cell.isToday ? cell.map.color : "#1a2535", fontFamily: "var(--font-share-tech)" }}>
+                  {cell.dayName}
+                </div>
+                <div className="text-lg font-black leading-none"
+                     style={{ color: cell.isToday ? cell.map.color : "#7a9bb5", fontFamily: "var(--font-orbitron)" }}>
+                  {String(cell.dayNum).padStart(2, "0")}
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="w-px h-8 shrink-0" style={{ background: cell.map.color + "30" }} />
+
+              {/* Map */}
+              <div className="flex items-center gap-2 flex-1">
+                <div className="w-2 h-2 rounded-full shrink-0" style={{ background: cell.map.color }} />
+                <span className="text-sm font-medium"
+                      style={{ color: cell.map.color + (cell.isToday ? "ff" : "99"), fontFamily: "var(--font-share-tech)" }}>
+                  {lang === "es" ? cell.map.es : cell.map.en}
+                </span>
+              </div>
+
+              {/* Today pulse */}
+              {cell.isToday && (
+                <motion.div
+                  className="w-1.5 h-1.5 rounded-full shrink-0"
+                  style={{ background: cell.map.color }}
+                  animate={{ opacity: [1, 0.3, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                />
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Desktop: full month grid */}
+        <motion.div
+          className="hidden md:block border border-[#1a2535] bg-[#070b0f]/60 overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
