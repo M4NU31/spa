@@ -8,6 +8,7 @@ export const translations = {
       info: "Info",
       admins: "Admins",
       contact: "Contacto",
+      shop: "Tienda",
       joinDiscord: "Unirse al Discord",
     },
     hero: {
@@ -67,6 +68,23 @@ export const translations = {
           features: ["Mapas Rotativos", "Eventos Especiales", "Comienzo Nuevo", "Voto Comunitario"],
         },
       ],
+    },
+    shop: {
+      nav: "Tienda",
+      sectionLabel: "Economía del Servidor",
+      title: "TIENDA DE",
+      titleHighlight: "MONEDAS",
+      subtitle: "Adquiere monedas de oro para canjear ítems, ventajas y más dentro del servidor.",
+      currency: "Monedas de Oro",
+      buyButton: "Comprar con PayPal",
+      howTitle: "¿CÓMO FUNCIONA?",
+      steps: [
+        { n: "01", text: "Haz clic en «Comprar con PayPal» y completa el pago." },
+        { n: "02", text: "Abre un ticket en nuestro Discord con tu comprobante de pago." },
+        { n: "03", text: "Un admin verificará el pago y te entregará las monedas en el juego." },
+      ],
+      note: "Las monedas se entregan manualmente por un administrador. El tiempo de entrega puede variar según la disponibilidad del staff.",
+      badge: "PAGO SEGURO VÍA PAYPAL",
     },
     calendar: {
       sectionLabel: "Servidor Rotativo",
@@ -218,6 +236,7 @@ export const translations = {
       info: "Info",
       admins: "Admins",
       contact: "Contact",
+      shop: "Shop",
       joinDiscord: "Join Discord",
     },
     hero: {
@@ -277,6 +296,23 @@ export const translations = {
           features: ["Rotating Maps", "Special Events", "Fresh Start", "Community Vote"],
         },
       ],
+    },
+    shop: {
+      nav: "Shop",
+      sectionLabel: "Server Economy",
+      title: "COIN",
+      titleHighlight: "SHOP",
+      subtitle: "Purchase gold coins to redeem for items, perks, and more on the server.",
+      currency: "Gold Coins",
+      buyButton: "Buy with PayPal",
+      howTitle: "HOW DOES IT WORK?",
+      steps: [
+        { n: "01", text: "Click \"Buy with PayPal\" and complete your payment." },
+        { n: "02", text: "Open a ticket on our Discord with your payment receipt." },
+        { n: "03", text: "An admin will verify the payment and deliver your coins in-game." },
+      ],
+      note: "Coins are delivered manually by an administrator. Delivery time may vary depending on staff availability.",
+      badge: "SECURE PAYMENT VIA PAYPAL",
     },
     calendar: {
       sectionLabel: "Rotative Server",

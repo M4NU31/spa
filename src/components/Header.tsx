@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Zap } from "lucide-react";
+import Link from "next/link";
 import { useLang } from "@/context/LanguageContext";
 import type { Lang } from "@/i18n/translations";
 
@@ -40,6 +41,8 @@ export default function Header() {
     { label: t.nav.admins,  href: "#admins" },
     { label: t.nav.contact, href: "#footer" },
   ];
+
+  const shopLabel = t.nav.shop;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -92,6 +95,13 @@ export default function Header() {
               <span className="relative z-10">{link.label}</span>
             </a>
           ))}
+          <Link
+            href="/shop/"
+            className="relative px-4 py-2 text-xs tracking-[0.15em] uppercase font-medium text-[#f59e0b] hover:text-[#fbbf24] transition-all duration-200"
+            style={{ fontFamily: "var(--font-share-tech)" }}
+          >
+            {shopLabel}
+          </Link>
         </nav>
 
         {/* Right side: lang toggle + Discord */}
@@ -152,6 +162,14 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
+            <Link
+              href="/shop/"
+              onClick={() => setMenuOpen(false)}
+              className="text-3xl font-black tracking-[0.1em] uppercase py-3 border-b border-[#1a2535] text-[#f59e0b] hover:text-[#fbbf24] transition-colors duration-200"
+              style={{ fontFamily: "var(--font-orbitron)" }}
+            >
+              {shopLabel}
+            </Link>
           </nav>
 
           {/* Bottom: lang toggle + discord */}
