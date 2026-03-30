@@ -13,7 +13,7 @@ const slides = [
     title: "SEPHIROT ARK",
     subtitle: "Survival Ascended",
     tagline: "Forge your legend in the unforgiving wild",
-    accent: "SEASON 3 — NOW LIVE",
+    accent: "NOW LIVE",
     image: "/images/slide-ragnarok.jpg",
     // dark gradient over the image so text is always readable
     tint: "from-[#030810]/80 via-[#0a1a2e]/60 to-[#030810]/80",

@@ -13,7 +13,7 @@ export const translations = {
     hero: {
       slides: [
         {
-          accent: "TEMPORADA 3 — EN VIVO",
+          accent: "EN VIVO",
           title: "SEPHIROT ARK",
           subtitle: "Survival Ascended",
           tagline: "Forja tu leyenda en la naturaleza más inhóspita",
@@ -63,13 +63,13 @@ export const translations = {
         {
           name: "Servidor Rotativo",
           difficulty: "Variable",
-          description: "Nuestro servidor rotativo cambia de mapa cada temporada. Cada rotación trae nuevos desafíos, eventos y un comienzo fresco para todos los sobrevivientes.",
-          features: ["Mapas de Temporada", "Eventos Especiales", "Comienzo Nuevo", "Voto Comunitario"],
+          description: "Nuestro servidor rotativo cambia de mapa periódicamente. Cada rotación trae nuevos desafíos, eventos y un comienzo fresco para todos los sobrevivientes.",
+          features: ["Mapas Rotativos", "Eventos Especiales", "Comienzo Nuevo", "Voto Comunitario"],
         },
       ],
     },
     events: {
-      sectionLabel: "Temporada 3",
+      sectionLabel: "Sephirot Ark",
       title: "EVENTOS",
       titleHighlight: "ACTIVOS",
       empty: "Sin señal de actividad detectada",
@@ -216,7 +216,7 @@ export const translations = {
     hero: {
       slides: [
         {
-          accent: "SEASON 3 — NOW LIVE",
+          accent: "NOW LIVE",
           title: "SEPHIROT ARK",
           subtitle: "Survival Ascended",
           tagline: "Forge your legend in the unforgiving wild",
@@ -266,13 +266,13 @@ export const translations = {
         {
           name: "Rotative Server",
           difficulty: "Varies",
-          description: "Our rotating map server cycles through different ARK maps seasonally. Each rotation brings new challenges, events, and a fresh start for all survivors.",
-          features: ["Seasonal Maps", "Special Events", "Fresh Start", "Community Vote"],
+          description: "Our rotating map server cycles through different ARK maps. Each rotation brings new challenges, events, and a fresh start for all survivors.",
+          features: ["Rotating Maps", "Special Events", "Fresh Start", "Community Vote"],
         },
       ],
     },
     events: {
-      sectionLabel: "Season 3",
+      sectionLabel: "Sephirot Ark",
       title: "ACTIVE",
       titleHighlight: "EVENTS",
       empty: "No activity signal detected",
