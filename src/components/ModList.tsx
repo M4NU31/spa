@@ -4,7 +4,7 @@ import { useModList } from "@/hooks/useModList";
 import { motion } from "framer-motion";
 import { ExternalLink, Package } from "lucide-react";
 
-const RAGNAROK_BM_ID = "38435102";
+const RAGNAROK_BM_ID = "38491127";
 
 function SkeletonCard() {
   return (
