@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /shop/success/
+
+Sitemap: https://sephirotark.com/sitemap.xml
