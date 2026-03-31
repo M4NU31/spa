@@ -10,7 +10,7 @@ import { useLang } from "@/context/LanguageContext";
 // Option B: provide ip — BM will search for it automatically
 // Get your BM IDs from: https://www.battlemetrics.com/servers/arksa
 const SERVER_CONFIG = [
-  { label: "Astreos",  bmId: "38460621" },
+  { label: "Astreos",  bmId: "38004563" },
   { label: "Valguero", bmId: "38491127" },
   { label: "Rotative", bmId: "38493137", rotative: true },
 ];
