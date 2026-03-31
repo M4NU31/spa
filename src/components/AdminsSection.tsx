@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Shield } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Flare, ScanLine, DrawLine } from "./SceneEffects";
 import { useLang } from "@/context/LanguageContext";
@@ -118,12 +118,7 @@ export default function AdminsSection() {
                         className="absolute inset-0 opacity-20"
                         style={{ background: `radial-gradient(circle, ${admin.color}, transparent)` }}
                       />
-                      <span
-                        className="text-2xl font-black relative z-10"
-                        style={{ color: admin.color, fontFamily: "var(--font-orbitron)" }}
-                      >
-                        {admin.name[0]}
-                      </span>
+                      <Shield size={28} className="relative z-10" style={{ color: admin.color }} />
                     </div>
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-400 border-2 border-[#0d1117] rounded-full animate-pulse" />
                   </div>
