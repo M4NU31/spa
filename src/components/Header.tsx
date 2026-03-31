@@ -51,6 +51,7 @@ export default function Header() {
   }, []);
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
@@ -127,9 +128,11 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu — full screen overlay */}
+    </header>
+
+      {/* Mobile menu — full screen overlay (sibling to header to avoid backdrop-blur containing block) */}
       {menuOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-[#070b0f]/98 backdrop-blur-md flex flex-col">
+        <div className="md:hidden fixed inset-0 z-[60] bg-[#070b0f] flex flex-col">
           {/* Top bar mirrors the header */}
           <div className="flex items-center justify-between px-6 py-3 border-b border-[#1a2535]">
             <a href="#home" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
@@ -187,6 +190,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
