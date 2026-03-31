@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Radio, Zap } from "lucide-react";
+import { Radio } from "lucide-react";
 import { Flare, ScanLine, DrawLine } from "./SceneEffects";
 import { useLang } from "@/context/LanguageContext";
 
@@ -39,7 +39,7 @@ export default function EventsSection() {
         </motion.div>
 
         {events.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {events.map((ev, i) => (
               <motion.div
                 key={i}
