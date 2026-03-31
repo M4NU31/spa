@@ -73,7 +73,7 @@ export default function MapsSection() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <section id="maps" ref={ref} className="relative py-24 bg-[#070b0f] overflow-hidden">
+    <section id="maps" ref={ref} className="relative py-24 bg-[var(--bg)] overflow-hidden">
       {/* Parallax grid background */}
       <motion.div className="absolute inset-0 grid-bg opacity-40" style={{ y: bgY }} />
 
@@ -106,11 +106,11 @@ export default function MapsSection() {
             {t.maps.sectionLabel}
             <span className="h-px w-12 bg-[#00d4ff]" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+          <h2 className="text-4xl md:text-5xl font-black text-[var(--text)]" style={{ fontFamily: "var(--font-orbitron)" }}>
             {t.maps.title} <span className="text-[#00d4ff] glow-cyan-text">{t.maps.titleHighlight}</span>
           </h2>
           <DrawLine className="mt-5 max-w-xs" delay={0.3} />
-          <p className="text-[#7a9bb5] mt-3 max-w-xl" style={{ fontFamily: "var(--font-share-tech)" }}>
+          <p className="text-[var(--text-dim)] mt-3 max-w-xl" style={{ fontFamily: "var(--font-share-tech)" }}>
             {t.maps.subtitle}
           </p>
         </motion.div>
@@ -130,7 +130,7 @@ export default function MapsSection() {
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 onMouseEnter={() => setHovered(map.id)}
                 onMouseLeave={() => setHovered(null)}
-                className={`relative group border transition-colors duration-300 cursor-pointer overflow-hidden ${hovered === map.id ? "border-[var(--map-color)] bg-[#0d1117]" : "border-[#1a2535] bg-[#0d1117]/60"
+                className={`relative group border transition-colors duration-300 cursor-pointer overflow-hidden ${hovered === map.id ? "border-[var(--map-color)] bg-[var(--surface)]" : "border-[var(--border)] bg-[var(--surface)]/60"
                   }`}
                 style={{ "--map-color": map.color } as React.CSSProperties}
               >
@@ -164,7 +164,7 @@ export default function MapsSection() {
                       >
                         {map.type === "PERMANENT" ? t.maps.permanent : t.maps.rotating}
                       </div>
-                      <h3 className="text-2xl font-black text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+                      <h3 className="text-2xl font-black text-[var(--text)]" style={{ fontFamily: "var(--font-orbitron)" }}>
                         {t.maps.maps[idx].name}
                       </h3>
                     </div>
@@ -174,7 +174,7 @@ export default function MapsSection() {
                   <div className="flex items-center gap-4 mb-5">
                     <div className="flex items-center gap-1.5">
                       {srv?.loading ? (
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#1a2535] animate-pulse" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--border)] animate-pulse" />
                       ) : (
                         <div className={`w-1.5 h-1.5 rounded-full ${srv?.online ? "bg-emerald-400 animate-pulse" : "bg-red-500/60"}`} />
                       )}
@@ -185,13 +185,13 @@ export default function MapsSection() {
                         {srv?.loading ? "—" : srv?.online ? t.maps.online : t.maps.offline}
                       </span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-[#7a9bb5]">
+                    <div className="flex items-center gap-1.5 text-[var(--text-dim)]">
                       <Users size={12} />
                       <span className="text-[11px]" style={{ fontFamily: "var(--font-share-tech)" }}>
                         {srv?.loading ? "—" : srv?.error ? "—" : `${srv?.players}/${srv?.maxPlayers}`}
                       </span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-[#7a9bb5]">
+                    <div className="flex items-center gap-1.5 text-[var(--text-dim)]">
                       <Cpu size={12} />
                       <span className="text-[11px]" style={{ fontFamily: "var(--font-share-tech)" }}>{t.maps.maps[idx].difficulty}</span>
                     </div>
@@ -204,13 +204,13 @@ export default function MapsSection() {
                       <span className="text-[10px] tracking-widest uppercase" style={{ color: map.color, fontFamily: "var(--font-share-tech)" }}>
                         {t.maps.currentMap}
                       </span>
-                      <span className="text-[11px] text-white font-medium" style={{ fontFamily: "var(--font-orbitron)" }}>
+                      <span className="text-[11px] text-[var(--text)] font-medium" style={{ fontFamily: "var(--font-orbitron)" }}>
                         {srv.map}
                       </span>
                     </div>
                   )}
 
-                  <p className="text-[#7a9bb5] text-sm leading-relaxed mb-5" style={{ fontFamily: "var(--font-share-tech)" }}>
+                  <p className="text-[var(--text-dim)] text-sm leading-relaxed mb-5" style={{ fontFamily: "var(--font-share-tech)" }}>
                     {t.maps.maps[idx].description}
                   </p>
 
@@ -218,7 +218,7 @@ export default function MapsSection() {
                     {t.maps.maps[idx].features.map((f) => (
                       <div key={f} className="flex items-center gap-2">
                         <ChevronRight size={10} style={{ color: map.color }} />
-                        <span className="text-[11px] text-[#7a9bb5]" style={{ fontFamily: "var(--font-share-tech)" }}>{f}</span>
+                        <span className="text-[11px] text-[var(--text-dim)]" style={{ fontFamily: "var(--font-share-tech)" }}>{f}</span>
                       </div>
                     ))}
                   </div>
@@ -236,7 +236,7 @@ export default function MapsSection() {
         </div>
 
         {/* Bottom ticker */}
-        <div className="mt-16 border-t border-[#1a2535] pt-6 overflow-hidden">
+        <div className="mt-16 border-t border-[var(--border)] pt-6 overflow-hidden">
           <div className="flex gap-0">
             <div className="animate-ticker whitespace-nowrap flex items-center gap-8 text-[#1a2535] text-sm" style={{ fontFamily: "var(--font-share-tech)" }}>
               {Array(4).fill(null).map((_, i) => (

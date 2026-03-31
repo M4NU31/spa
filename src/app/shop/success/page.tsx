@@ -12,7 +12,7 @@ export default function PaymentSuccessPage() {
   const s = t.shop.success;
 
   return (
-    <div className="min-h-screen bg-[#070b0f] text-white">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent" />
 
       {/* Header */}
@@ -26,14 +26,14 @@ export default function PaymentSuccessPage() {
             <span className="text-[#00d4ff] font-black tracking-[0.2em] text-lg uppercase" style={{ fontFamily: "var(--font-orbitron)" }}>
               Sephirot
             </span>
-            <span className="text-[#7a9bb5] text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>
+            <span className="text-[var(--text-dim)] text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>
               ARK · Ascended
             </span>
           </div>
         </Link>
         <Link
           href="/shop"
-          className="text-[#7a9bb5] hover:text-[#00d4ff] text-xs tracking-widest uppercase transition-colors duration-200"
+          className="text-[var(--text-dim)] hover:text-[#00d4ff] text-xs tracking-widest uppercase transition-colors duration-200"
           style={{ fontFamily: "var(--font-share-tech)" }}
         >
           ← {s.backButton}
@@ -76,18 +76,18 @@ export default function PaymentSuccessPage() {
               <span className="h-px w-12 bg-[#00d4ff]" />
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-4" style={{ fontFamily: "var(--font-orbitron)" }}>
+            <h1 className="text-4xl md:text-6xl font-black text-[var(--text)] mb-4" style={{ fontFamily: "var(--font-orbitron)" }}>
               {s.title} <span className="text-[#00d4ff] glow-cyan-text">{s.titleHighlight}</span>
             </h1>
             <DrawLine className="mx-auto max-w-xs mt-4 mb-4" delay={0.3} />
-            <p className="text-[#7a9bb5] max-w-md mx-auto" style={{ fontFamily: "var(--font-share-tech)" }}>
+            <p className="text-[var(--text-dim)] max-w-md mx-auto" style={{ fontFamily: "var(--font-share-tech)" }}>
               {s.subtitle}
             </p>
           </motion.div>
 
           {/* Steps */}
           <motion.div
-            className="border border-[#1a2535] bg-[#0d1117] overflow-hidden mb-6"
+            className="border border-[var(--border)] bg-[var(--surface)] overflow-hidden mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -110,12 +110,12 @@ export default function PaymentSuccessPage() {
                   </span>
                   <div>
                     <p
-                      className="text-white font-bold text-sm tracking-widest uppercase mb-1"
+                      className="text-[var(--text)] font-bold text-sm tracking-widest uppercase mb-1"
                       style={{ fontFamily: "var(--font-orbitron)" }}
                     >
                       {step.title}
                     </p>
-                    <p className="text-[#7a9bb5] text-sm leading-relaxed" style={{ fontFamily: "var(--font-share-tech)" }}>
+                    <p className="text-[var(--text-dim)] text-sm leading-relaxed" style={{ fontFamily: "var(--font-share-tech)" }}>
                       {step.text}
                     </p>
                   </div>
@@ -145,10 +145,10 @@ export default function PaymentSuccessPage() {
 
             {/* Delivery note */}
             <div
-              className="flex items-center gap-3 border border-[#1a2535] bg-[#070b0f]/80 p-4"
+              className="flex items-center gap-3 border border-[var(--border)] bg-[var(--bg)]/80 p-4"
             >
-              <Clock size={14} className="text-[#7a9bb5] shrink-0" />
-              <p className="text-[#7a9bb5] text-xs" style={{ fontFamily: "var(--font-share-tech)" }}>
+              <Clock size={14} className="text-[var(--text-dim)] shrink-0" />
+              <p className="text-[var(--text-dim)] text-xs" style={{ fontFamily: "var(--font-share-tech)" }}>
                 {s.note}
               </p>
             </div>

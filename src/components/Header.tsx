@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap, Sun, Moon } from "lucide-react";
 import Link from "next/link";
 import { useLang } from "@/context/LanguageContext";
 import type { Lang } from "@/i18n/translations";
@@ -9,7 +9,7 @@ import type { Lang } from "@/i18n/translations";
 function LangToggle() {
   const { lang, setLang } = useLang();
   return (
-    <div className="flex items-center border border-[#1a2535] overflow-hidden">
+    <div className="flex items-center border border-[var(--border)] overflow-hidden">
       {(["es", "en"] as Lang[]).map((l) => (
         <button
           key={l}
@@ -17,7 +17,7 @@ function LangToggle() {
           className={`px-2.5 py-1 text-[10px] tracking-widest uppercase transition-all duration-200 ${
             lang === l
               ? "bg-[#00d4ff] text-[#070b0f] font-bold"
-              : "text-[#7a9bb5] hover:text-[#00d4ff]"
+              : "text-[var(--text-dim)] hover:text-[#00d4ff]"
           }`}
           style={{ fontFamily: "var(--font-share-tech)" }}
         >
@@ -33,6 +33,22 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("#home");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("sephirot-theme") as "dark" | "light" | null;
+    if (saved) {
+      setTheme(saved);
+      document.documentElement.classList.toggle("light", saved === "light");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.classList.toggle("light", next === "light");
+    localStorage.setItem("sephirot-theme", next);
+  };
 
   const navLinks = [
     { label: t.nav.home,    href: "#home" },
@@ -55,7 +71,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#070b0f]/95 backdrop-blur-md border-b border-[#1a2535]"
+          ? "bg-[var(--bg)]/95 backdrop-blur-md border-b border-[var(--border)]"
           : "bg-transparent"
       }`}
     >
@@ -72,7 +88,7 @@ export default function Header() {
             <span className="text-[#00d4ff] font-black tracking-[0.2em] text-lg uppercase" style={{ fontFamily: "var(--font-orbitron)" }}>
               Sephirot
             </span>
-            <span className="text-[#7a9bb5] text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>
+            <span className="text-[var(--text-dim)] text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>
               ARK · Ascended
             </span>
           </div>
@@ -86,7 +102,7 @@ export default function Header() {
               href={link.href}
               onClick={() => setActive(link.href)}
               className={`relative px-4 py-2 text-xs tracking-[0.15em] uppercase font-medium transition-all duration-200 ${
-                active === link.href ? "text-[#00d4ff]" : "text-[#7a9bb5] hover:text-[#00d4ff]"
+                active === link.href ? "text-[#00d4ff]" : "text-[var(--text-dim)] hover:text-[#00d4ff]"
               }`}
               style={{ fontFamily: "var(--font-share-tech)" }}
             >
@@ -105,9 +121,16 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Right side: lang toggle + Discord */}
+        {/* Right side: lang toggle + theme + Discord */}
         <div className="hidden md:flex items-center gap-3">
           <LangToggle />
+          <button
+            onClick={toggleTheme}
+            className="p-2 text-[var(--text-dim)] hover:text-[#00d4ff] transition-colors duration-200"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
           <a
             href="https://discord.gg"
             target="_blank"
@@ -119,9 +142,16 @@ export default function Header() {
           </a>
         </div>
 
-        {/* Mobile: lang toggle + hamburger */}
+        {/* Mobile: lang toggle + theme + hamburger */}
         <div className="md:hidden flex items-center gap-3">
           <LangToggle />
+          <button
+            onClick={toggleTheme}
+            className="p-2 text-[var(--text-dim)] hover:text-[#00d4ff] transition-colors duration-200"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
           <button className="text-[#00d4ff] p-2" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -132,9 +162,9 @@ export default function Header() {
 
       {/* Mobile menu — full screen overlay (sibling to header to avoid backdrop-blur containing block) */}
       {menuOpen && (
-        <div className="md:hidden fixed inset-0 z-[60] bg-[#070b0f] flex flex-col">
+        <div className="md:hidden fixed inset-0 z-[60] bg-[var(--bg)] flex flex-col">
           {/* Top bar mirrors the header */}
-          <div className="flex items-center justify-between px-6 py-3 border-b border-[#1a2535]">
+          <div className="flex items-center justify-between px-6 py-3 border-b border-[var(--border)]">
             <a href="#home" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
               <div className="relative w-9 h-9 flex items-center justify-center">
                 <div className="absolute inset-0 border border-[#00d4ff] rotate-45" />
@@ -142,7 +172,7 @@ export default function Header() {
               </div>
               <div className="flex flex-col leading-none">
                 <span className="text-[#00d4ff] font-black tracking-[0.2em] text-lg uppercase" style={{ fontFamily: "var(--font-orbitron)" }}>Sephirot</span>
-                <span className="text-[#7a9bb5] text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>ARK · Ascended</span>
+                <span className="text-[var(--text-dim)] text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>ARK · Ascended</span>
               </div>
             </a>
             <button className="text-[#00d4ff] p-2" onClick={() => setMenuOpen(false)}>
@@ -157,8 +187,8 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => { setActive(link.href); setMenuOpen(false); }}
-                className={`text-3xl font-black tracking-[0.1em] uppercase py-3 border-b border-[#1a2535] transition-colors duration-200 ${
-                  active === link.href ? "text-[#00d4ff]" : "text-[#7a9bb5] hover:text-[#00d4ff]"
+                className={`text-3xl font-black tracking-[0.1em] uppercase py-3 border-b border-[var(--border)] transition-colors duration-200 ${
+                  active === link.href ? "text-[#00d4ff]" : "text-[var(--text-dim)] hover:text-[#00d4ff]"
                 }`}
                 style={{ fontFamily: "var(--font-orbitron)", animationDelay: `${i * 60}ms` }}
               >
@@ -168,7 +198,7 @@ export default function Header() {
             <Link
               href="/shop/"
               onClick={() => setMenuOpen(false)}
-              className="text-3xl font-black tracking-[0.1em] uppercase py-3 border-b border-[#1a2535] text-[#f59e0b] hover:text-[#fbbf24] transition-colors duration-200"
+              className="text-3xl font-black tracking-[0.1em] uppercase py-3 border-b border-[var(--border)] text-[#f59e0b] hover:text-[#fbbf24] transition-colors duration-200"
               style={{ fontFamily: "var(--font-orbitron)" }}
             >
               {shopLabel}
@@ -176,7 +206,7 @@ export default function Header() {
           </nav>
 
           {/* Bottom: lang toggle + discord */}
-          <div className="px-10 py-8 flex items-center justify-between border-t border-[#1a2535]">
+          <div className="px-10 py-8 flex items-center justify-between border-t border-[var(--border)]">
             <LangToggle />
             <a
               href="https://discord.gg"

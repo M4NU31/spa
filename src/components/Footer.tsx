@@ -38,7 +38,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer id="footer" className="relative bg-[#0d1117] border-t border-[#1a2535] overflow-hidden">
+    <footer id="footer" className="relative bg-[var(--surface)] border-t border-[var(--border)] overflow-hidden">
       {/* Top accent line */}
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent" />
 
@@ -65,7 +65,7 @@ export default function Footer() {
                   Sephirot
                 </span>
                 <span
-                  className="text-[#7a9bb5] text-[10px] tracking-[0.4em] uppercase"
+                  className="text-[var(--text-dim)] text-[10px] tracking-[0.4em] uppercase"
                   style={{ fontFamily: "var(--font-share-tech)" }}
                 >
                   ARK · Ascended
@@ -73,7 +73,7 @@ export default function Footer() {
               </div>
             </div>
             <p
-              className="text-[#7a9bb5] text-sm leading-relaxed mb-6"
+              className="text-[var(--text-dim)] text-sm leading-relaxed mb-6"
               style={{ fontFamily: "var(--font-share-tech)" }}
             >
               {t.footer.tagline}
@@ -108,10 +108,10 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-[#7a9bb5] hover:text-[#e0eaf5] text-sm flex items-center gap-1.5 group transition-colors duration-150"
+                      className="text-[var(--text-dim)] hover:text-[#e0eaf5] text-sm flex items-center gap-1.5 group transition-colors duration-150"
                       style={{ fontFamily: "var(--font-share-tech)" }}
                     >
-                      <span className="w-px h-3 bg-[#1a2535] group-hover:bg-[#00d4ff]/40 transition-colors shrink-0" />
+                      <span className="w-px h-3 bg-[var(--border)] group-hover:bg-[#00d4ff]/40 transition-colors shrink-0" />
                       {link.label}
                       {link.href.startsWith("http") && (
                         <ExternalLink size={10} className="opacity-40" />
@@ -125,7 +125,7 @@ export default function Footer() {
         </div>
 
         {/* Server stats bar */}
-        <div className="border-t border-[#1a2535] border-b py-4 mb-8 flex flex-wrap items-center justify-around gap-4">
+        <div className="border-t border-[var(--border)] border-b py-4 mb-8 flex flex-wrap items-center justify-around gap-4">
           {t.footer.stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -138,7 +138,7 @@ export default function Footer() {
               <div className="text-2xl font-black text-[#00d4ff]" style={{ fontFamily: "var(--font-orbitron)" }}>
                 {stat.value}
               </div>
-              <div className="text-[#7a9bb5] text-[11px] tracking-widest uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>
+              <div className="text-[var(--text-dim)] text-[11px] tracking-widest uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>
                 {stat.label}
               </div>
             </motion.div>
@@ -148,7 +148,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
           <p
-            className="text-[#7a9bb5] text-xs"
+            className="text-[var(--text-dim)] text-xs"
             style={{ fontFamily: "var(--font-share-tech)" }}
           >
             {t.footer.copyright}

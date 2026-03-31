@@ -51,6 +51,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${orbitron.variable} ${shareTechMono.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('sephirot-theme');if(t==='light')document.documentElement.classList.add('light');})();` }} />
+      </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <SmoothScroll />
         <LanguageProvider>{children}</LanguageProvider>

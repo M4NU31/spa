@@ -14,7 +14,7 @@ const PACKAGES = [
 
 function PayPalButton({ buttonId, label }: { buttonId: string; label: string }) {
   if (!buttonId) return (
-    <div className="mt-auto py-3 px-6 text-center text-xs tracking-widest uppercase text-[#1a2535] border border-[#1a2535]"
+    <div className="mt-auto py-3 px-6 text-center text-xs tracking-widest uppercase text-[#1a2535] border border-[var(--border)]"
          style={{ fontFamily: "var(--font-share-tech)" }}>
       Coming Soon
     </div>
@@ -44,7 +44,7 @@ export default function ShopPage() {
   const { lang, t } = useLang();
 
   return (
-    <div className="min-h-screen bg-[#070b0f] text-white">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
       {/* Header bar */}
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent" />
       <header className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -57,14 +57,14 @@ export default function ShopPage() {
             <span className="text-[#00d4ff] font-black tracking-[0.2em] text-lg uppercase" style={{ fontFamily: "var(--font-orbitron)" }}>
               Sephirot
             </span>
-            <span className="text-[#7a9bb5] text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>
+            <span className="text-[var(--text-dim)] text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>
               ARK · Ascended
             </span>
           </div>
         </Link>
         <Link
           href="/"
-          className="text-[#7a9bb5] hover:text-[#00d4ff] text-xs tracking-widest uppercase transition-colors duration-200"
+          className="text-[var(--text-dim)] hover:text-[#00d4ff] text-xs tracking-widest uppercase transition-colors duration-200"
           style={{ fontFamily: "var(--font-share-tech)" }}
         >
           ← {lang === "es" ? "Volver" : "Back"}
@@ -94,11 +94,11 @@ export default function ShopPage() {
               {t.shop.sectionLabel}
               <span className="h-px w-12 bg-[#00d4ff]" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-4" style={{ fontFamily: "var(--font-orbitron)" }}>
+            <h1 className="text-4xl md:text-6xl font-black text-[var(--text)] mb-4" style={{ fontFamily: "var(--font-orbitron)" }}>
               {t.shop.title} <span className="text-[#00d4ff] glow-cyan-text">{t.shop.titleHighlight}</span>
             </h1>
             <DrawLine className="mx-auto max-w-xs mt-4 mb-4" delay={0.3} />
-            <p className="text-[#7a9bb5] max-w-md mx-auto" style={{ fontFamily: "var(--font-share-tech)" }}>
+            <p className="text-[var(--text-dim)] max-w-md mx-auto" style={{ fontFamily: "var(--font-share-tech)" }}>
               {t.shop.subtitle}
             </p>
           </motion.div>
@@ -108,7 +108,7 @@ export default function ShopPage() {
             {PACKAGES.map((pkg, i) => (
               <motion.div
                 key={pkg.coins}
-                className="relative border bg-[#0d1117] overflow-hidden flex flex-col"
+                className="relative border bg-[var(--surface)] overflow-hidden flex flex-col"
                 style={{ borderColor: pkg.popular ? pkg.color : "#1a2535" }}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -150,10 +150,10 @@ export default function ShopPage() {
 
                   {/* Price */}
                   <div className="mb-8">
-                    <span className="text-4xl font-black text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+                    <span className="text-4xl font-black text-[var(--text)]" style={{ fontFamily: "var(--font-orbitron)" }}>
                       ${pkg.price}
                     </span>
-                    <span className="text-[#7a9bb5] text-sm ml-2" style={{ fontFamily: "var(--font-share-tech)" }}>
+                    <span className="text-[var(--text-dim)] text-sm ml-2" style={{ fontFamily: "var(--font-share-tech)" }}>
                       USD
                     </span>
                   </div>
@@ -167,13 +167,13 @@ export default function ShopPage() {
 
           {/* How it works */}
           <motion.div
-            className="border border-[#1a2535] bg-[#0d1117]/60 p-8 md:p-12 mb-10"
+            className="border border-[var(--border)] bg-[var(--surface)]/60 p-8 md:p-12 mb-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h2
-              className="text-xl font-black text-white mb-8 tracking-widest"
+              className="text-xl font-black text-[var(--text)] mb-8 tracking-widest"
               style={{ fontFamily: "var(--font-orbitron)" }}
             >
               {t.shop.howTitle}
@@ -188,7 +188,7 @@ export default function ShopPage() {
                     {step.n}
                   </span>
                   <p
-                    className="text-[#7a9bb5] text-sm leading-relaxed pt-1"
+                    className="text-[var(--text-dim)] text-sm leading-relaxed pt-1"
                     style={{ fontFamily: "var(--font-share-tech)" }}
                   >
                     {step.text}
@@ -200,7 +200,7 @@ export default function ShopPage() {
 
           {/* Footer note */}
           <motion.div
-            className="flex flex-col md:flex-row items-start md:items-center gap-4 border border-[#1a2535] bg-[#070b0f]/80 p-5"
+            className="flex flex-col md:flex-row items-start md:items-center gap-4 border border-[var(--border)] bg-[var(--bg)]/80 p-5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -214,10 +214,10 @@ export default function ShopPage() {
                 {t.shop.badge}
               </span>
             </div>
-            <div className="w-px h-6 bg-[#1a2535] hidden md:block" />
+            <div className="w-px h-6 bg-[var(--border)] hidden md:block" />
             <div className="flex items-start gap-2">
-              <Ticket size={14} className="text-[#7a9bb5] mt-0.5 shrink-0" />
-              <p className="text-[#7a9bb5] text-xs" style={{ fontFamily: "var(--font-share-tech)" }}>
+              <Ticket size={14} className="text-[var(--text-dim)] mt-0.5 shrink-0" />
+              <p className="text-[var(--text-dim)] text-xs" style={{ fontFamily: "var(--font-share-tech)" }}>
                 {t.shop.note}
               </p>
             </div>

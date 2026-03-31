@@ -9,7 +9,7 @@ export default function EventsSection() {
   const { t } = useLang();
 
   return (
-    <section id="events" className="relative py-24 bg-[#070b0f] overflow-hidden">
+    <section id="events" className="relative py-24 bg-[var(--bg)] overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30" />
       <ScanLine delay={1} opacity={0.04} />
       <Flare x="85%" y="30%" size={260} color="#00d4ff" duration={14} delay={0} />
@@ -31,7 +31,7 @@ export default function EventsSection() {
             <span className="h-px w-12 bg-[#00d4ff]" />
             {t.events.sectionLabel}
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+          <h2 className="text-4xl md:text-5xl font-black text-[var(--text)]" style={{ fontFamily: "var(--font-orbitron)" }}>
             {t.events.title} <span className="text-[#00d4ff] glow-cyan-text">{t.events.titleHighlight}</span>
           </h2>
           <DrawLine className="mt-5 max-w-xs" delay={0.3} />
@@ -39,7 +39,7 @@ export default function EventsSection() {
 
         {/* Empty state */}
         <motion.div
-          className="relative border border-[#1a2535] bg-[#0d1117]/60 flex flex-col items-center justify-center py-20 px-6 overflow-hidden"
+          className="relative border border-[var(--border)] bg-[var(--surface)]/60 flex flex-col items-center justify-center py-20 px-6 overflow-hidden"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -79,13 +79,13 @@ export default function EventsSection() {
           </div>
 
           <h3
-            className="text-xl md:text-2xl font-black text-white/60 text-center mb-3"
+            className="text-xl md:text-2xl font-black text-[var(--text)]/60 text-center mb-3"
             style={{ fontFamily: "var(--font-orbitron)" }}
           >
             {t.events.empty}
           </h3>
           <p
-            className="text-[#7a9bb5] text-sm text-center max-w-md"
+            className="text-[var(--text-dim)] text-sm text-center max-w-md"
             style={{ fontFamily: "var(--font-share-tech)" }}
           >
             {t.events.emptySub}

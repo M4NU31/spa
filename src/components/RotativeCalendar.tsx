@@ -85,7 +85,7 @@ export default function RotativeCalendar() {
   const todayDate = today.getDate();
 
   return (
-    <section id="calendar" className="relative py-24 bg-[#0d1117] overflow-hidden">
+    <section id="calendar" className="relative py-24 bg-[var(--surface)] overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30" />
       <ScanLine delay={1.5} opacity={0.04} />
       <Flare x="92%" y="25%" size={250} color="#a855f7" duration={13} delay={1} />
@@ -108,7 +108,7 @@ export default function RotativeCalendar() {
             <span className="h-px w-12 bg-[#00d4ff]" />
             {t.calendar.sectionLabel}
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+          <h2 className="text-4xl md:text-5xl font-black text-[var(--text)]" style={{ fontFamily: "var(--font-orbitron)" }}>
             {t.calendar.title}{" "}
             <span className="text-[#00d4ff] glow-cyan-text">{t.calendar.titleHighlight}</span>
           </h2>
@@ -117,7 +117,7 @@ export default function RotativeCalendar() {
 
         {/* Today's map banner */}
         <motion.div
-          className="mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 border border-[#1a2535] bg-[#070b0f]/80 p-5"
+          className="mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 border border-[var(--border)] bg-[var(--bg)]/80 p-5"
           style={{ borderLeftColor: todayMap.color, borderLeftWidth: 3 }}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -131,7 +131,7 @@ export default function RotativeCalendar() {
             >
               {t.calendar.todayMap}
             </div>
-            <div className="text-2xl font-black text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+            <div className="text-2xl font-black text-[var(--text)]" style={{ fontFamily: "var(--font-orbitron)" }}>
               {todayMap.label}
             </div>
           </div>
@@ -153,14 +153,14 @@ export default function RotativeCalendar() {
 
         {/* Mobile: weekly list */}
         <motion.div
-          className="md:hidden flex flex-col border border-[#1a2535] bg-[#070b0f]/60 overflow-hidden mb-6"
+          className="md:hidden flex flex-col border border-[var(--border)] bg-[var(--bg)]/60 overflow-hidden mb-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="px-5 py-3 border-b border-[#1a2535] flex items-center justify-between">
-            <span className="text-white font-black uppercase tracking-widest text-xs capitalize"
+          <div className="px-5 py-3 border-b border-[var(--border)] flex items-center justify-between">
+            <span className="text-[var(--text)] font-black uppercase tracking-widest text-xs capitalize"
                   style={{ fontFamily: "var(--font-orbitron)" }}>
               {monthLabel}
             </span>
@@ -169,8 +169,8 @@ export default function RotativeCalendar() {
           {weekCells.map((cell) => (
             <motion.div
               key={cell.dayNum}
-              className={`flex items-center gap-4 px-5 py-3 border-b border-[#1a2535]/40 last:border-0 ${
-                cell.isToday ? "bg-[#0d1117]" : ""
+              className={`flex items-center gap-4 px-5 py-3 border-b border-[var(--border)]/40 last:border-0 ${
+                cell.isToday ? "bg-[var(--surface)]" : ""
               }`}
               style={cell.isToday ? { borderLeftColor: cell.map.color, borderLeftWidth: 3 } : {}}
             >
@@ -213,16 +213,16 @@ export default function RotativeCalendar() {
 
         {/* Desktop: full month grid */}
         <motion.div
-          className="hidden md:block border border-[#1a2535] bg-[#070b0f]/60 overflow-hidden"
+          className="hidden md:block border border-[var(--border)] bg-[var(--bg)]/60 overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
         >
           {/* Month header */}
-          <div className="px-6 py-4 border-b border-[#1a2535] flex items-center justify-between">
+          <div className="px-6 py-4 border-b border-[var(--border)] flex items-center justify-between">
             <span
-              className="text-white font-black uppercase tracking-widest text-sm capitalize"
+              className="text-[var(--text)] font-black uppercase tracking-widest text-sm capitalize"
               style={{ fontFamily: "var(--font-orbitron)" }}
             >
               {monthLabel}
@@ -231,7 +231,7 @@ export default function RotativeCalendar() {
           </div>
 
           {/* Weekday headers */}
-          <div className="grid grid-cols-7 border-b border-[#1a2535]">
+          <div className="grid grid-cols-7 border-b border-[var(--border)]">
             {weekdays.map((d) => (
               <div
                 key={d}
@@ -250,7 +250,7 @@ export default function RotativeCalendar() {
                 return (
                   <div
                     key={`empty-${i}`}
-                    className="border-b border-r border-[#1a2535]/20 min-h-[80px]"
+                    className="border-b border-r border-[var(--border)]/20 min-h-[80px]"
                   />
                 );
               }
@@ -258,8 +258,8 @@ export default function RotativeCalendar() {
               return (
                 <motion.div
                   key={cell.day}
-                  className={`relative min-h-[80px] p-2 border-b border-r border-[#1a2535]/30 flex flex-col gap-1 transition-colors duration-200 ${
-                    isToday ? "bg-[#0d1117]" : "hover:bg-[#0d1117]/60"
+                  className={`relative min-h-[80px] p-2 border-b border-r border-[var(--border)]/30 flex flex-col gap-1 transition-colors duration-200 ${
+                    isToday ? "bg-[var(--surface)]" : "hover:bg-[var(--surface)]/60"
                   }`}
                   style={isToday ? { borderTopColor: cell.map.color, borderTopWidth: 2 } : {}}
                   initial={{ opacity: 0 }}

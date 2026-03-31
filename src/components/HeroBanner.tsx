@@ -143,7 +143,7 @@ export default function HeroBanner() {
 
       {/* Large decorative text */}
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18vw] font-black text-white/[0.04] select-none whitespace-nowrap pointer-events-none z-[2]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18vw] font-black text-[var(--text)]/[0.04] select-none whitespace-nowrap pointer-events-none z-[2]"
         style={{ fontFamily: "var(--font-orbitron)", y: bgY }}
       >
         ARK
@@ -194,7 +194,7 @@ export default function HeroBanner() {
               </div>
 
               <h1
-                className="text-5xl md:text-7xl font-black text-white leading-none mb-2 glow-cyan-text"
+                className="text-5xl md:text-7xl font-black text-[var(--text)] leading-none mb-2 glow-cyan-text"
                 style={{ fontFamily: "var(--font-orbitron)" }}
               >
                 {t.hero.slides[current].title}
@@ -221,7 +221,7 @@ export default function HeroBanner() {
             </a>
             <a
               href="#info"
-              className="px-8 py-3 border border-white/20 text-white/70 hover:border-[#00d4ff] hover:text-[#00d4ff] text-sm tracking-[0.15em] uppercase transition-all duration-200 backdrop-blur-sm"
+              className="px-8 py-3 border border-white/20 text-[var(--text)]/70 hover:border-[#00d4ff] hover:text-[#00d4ff] text-sm tracking-[0.15em] uppercase transition-all duration-200 backdrop-blur-sm"
               style={{ fontFamily: "var(--font-share-tech)" }}
             >
               {t.hero.serverInfo}
@@ -244,13 +244,13 @@ export default function HeroBanner() {
           ))}
         </div>
         <div className="flex items-center gap-2">
-          <button onClick={prev} className="w-10 h-10 border border-white/20 hover:border-[#00d4ff] text-white/50 hover:text-[#00d4ff] flex items-center justify-center transition-all duration-200 backdrop-blur-sm">
+          <button onClick={prev} className="w-10 h-10 border border-white/20 hover:border-[#00d4ff] text-[var(--text)]/50 hover:text-[#00d4ff] flex items-center justify-center transition-all duration-200 backdrop-blur-sm">
             <ChevronLeft size={18} />
           </button>
-          <button onClick={next} className="w-10 h-10 border border-white/20 hover:border-[#00d4ff] text-white/50 hover:text-[#00d4ff] flex items-center justify-center transition-all duration-200 backdrop-blur-sm">
+          <button onClick={next} className="w-10 h-10 border border-white/20 hover:border-[#00d4ff] text-[var(--text)]/50 hover:text-[#00d4ff] flex items-center justify-center transition-all duration-200 backdrop-blur-sm">
             <ChevronRight size={18} />
           </button>
-          <span className="text-white/40 text-xs ml-2" style={{ fontFamily: "var(--font-share-tech)" }}>
+          <span className="text-[var(--text)]/40 text-xs ml-2" style={{ fontFamily: "var(--font-share-tech)" }}>
             {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
           </span>
         </div>

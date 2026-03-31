@@ -41,7 +41,7 @@ export default function AdminsSection() {
   const { t } = useLang();
 
   return (
-    <section id="admins" ref={ref} className="relative py-24 bg-[#070b0f] overflow-hidden">
+    <section id="admins" ref={ref} className="relative py-24 bg-[var(--bg)] overflow-hidden">
       {/* Parallax grid */}
       <motion.div className="absolute inset-0 grid-bg opacity-40" style={{ y: bgY }} />
 
@@ -73,11 +73,11 @@ export default function AdminsSection() {
             {t.admins.sectionLabel}
             <span className="h-px w-12 bg-[#00d4ff]" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-3" style={{ fontFamily: "var(--font-orbitron)" }}>
+          <h2 className="text-4xl md:text-5xl font-black text-[var(--text)] mb-3" style={{ fontFamily: "var(--font-orbitron)" }}>
             {t.admins.title} <span className="text-[#00d4ff] glow-cyan-text">{t.admins.titleHighlight}</span>
           </h2>
           <DrawLine className="mx-auto max-w-[120px] mt-4 mb-4" delay={0.2} />
-          <p className="text-[#7a9bb5] max-w-md mx-auto" style={{ fontFamily: "var(--font-share-tech)" }}>
+          <p className="text-[var(--text-dim)] max-w-md mx-auto" style={{ fontFamily: "var(--font-share-tech)" }}>
             {t.admins.subtitle}
           </p>
         </motion.div>
@@ -87,7 +87,7 @@ export default function AdminsSection() {
           {admins.map((admin, idx) => (
             <motion.div
               key={admin.name}
-              className={`relative border bg-[#0d1117] overflow-hidden group ${idx === 0 ? "md:mt-0" : "md:mt-6"}`}
+              className={`relative border bg-[var(--surface)] overflow-hidden group ${idx === 0 ? "md:mt-0" : "md:mt-6"}`}
               style={{ borderColor: `${admin.color}30` }}
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ export default function AdminsSection() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-black text-white mb-1 flex items-center gap-2" style={{ fontFamily: "var(--font-orbitron)" }}>
+                <h3 className="text-xl font-black text-[var(--text)] mb-1 flex items-center gap-2" style={{ fontFamily: "var(--font-orbitron)" }}>
                   {admin.name}
                   <img
                     src={`https://flagcdn.com/w20/${admin.flag}.png`}
@@ -166,7 +166,7 @@ export default function AdminsSection() {
 
         {/* Contact CTA */}
         <motion.div
-          className="mt-12 border border-[#1a2535] bg-[#0d1117]/60 p-6 flex flex-col md:flex-row items-center justify-between gap-4"
+          className="mt-12 border border-[var(--border)] bg-[var(--surface)]/60 p-6 flex flex-col md:flex-row items-center justify-between gap-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -177,8 +177,8 @@ export default function AdminsSection() {
               <MessageCircle size={18} className="text-[#00d4ff]" />
             </div>
             <div>
-              <div className="text-white font-medium text-sm" style={{ fontFamily: "var(--font-orbitron)" }}>{t.admins.needHelp}</div>
-              <div className="text-[#7a9bb5] text-xs" style={{ fontFamily: "var(--font-share-tech)" }}>{t.admins.needHelpSub}</div>
+              <div className="text-[var(--text)] font-medium text-sm" style={{ fontFamily: "var(--font-orbitron)" }}>{t.admins.needHelp}</div>
+              <div className="text-[var(--text-dim)] text-xs" style={{ fontFamily: "var(--font-share-tech)" }}>{t.admins.needHelpSub}</div>
             </div>
           </div>
           <a

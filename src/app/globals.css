@@ -3,13 +3,24 @@
 :root {
   --cyan: #00d4ff;
   --cyan-dim: #0099bb;
-  --dark-bg: #070b0f;
-  --dark-surface: #0d1117;
-  --dark-card: #111820;
-  --dark-border: #1a2535;
-  --dark-border-bright: #1e3a4a;
-  --text-primary: #e0eaf5;
-  --text-secondary: #7a9bb5;
+  /* theme tokens — dark (default) */
+  --bg:            #070b0f;
+  --surface:       #0d1117;
+  --card:          #111820;
+  --border:        #1a2535;
+  --border-bright: #1e3a4a;
+  --text:          #e0eaf5;
+  --text-dim:      #7a9bb5;
+}
+
+html.light {
+  --bg:            #f0f4f8;
+  --surface:       #ffffff;
+  --card:          #f7fafd;
+  --border:        #c8d8e8;
+  --border-bright: #a0bcd8;
+  --text:          #0d1f33;
+  --text-dim:      #4a6890;
 }
 
 * {
@@ -21,14 +32,14 @@ html {
 }
 
 body {
-  background-color: var(--dark-bg);
-  color: var(--text-primary);
+  background-color: var(--bg);
+  color: var(--text);
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--dark-bg); }
+::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--cyan-dim); border-radius: 3px; }
 
 .glow-cyan {

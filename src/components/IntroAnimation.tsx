@@ -81,7 +81,7 @@ export default function IntroAnimation({ onComplete }: { onComplete: () => void 
         {/* Title */}
         <div className="flex flex-col items-center gap-1 text-center">
           <h1
-            className="text-4xl md:text-5xl font-black text-white tracking-[0.15em] uppercase"
+            className="text-4xl md:text-5xl font-black text-[var(--text)] tracking-[0.15em] uppercase"
             style={{
               fontFamily: "var(--font-orbitron)",
               textShadow: "0 0 30px rgba(0,212,255,0.6), 0 0 60px rgba(0,212,255,0.2)",
@@ -99,7 +99,7 @@ export default function IntroAnimation({ onComplete }: { onComplete: () => void 
             ARK
           </span>
           <span
-            className="text-[#7a9bb5] text-[11px] tracking-[0.5em] uppercase mt-1"
+            className="text-[var(--text-dim)] text-[11px] tracking-[0.5em] uppercase mt-1"
             style={{ fontFamily: "var(--font-share-tech)" }}
           >
             Survival Ascended
@@ -108,7 +108,7 @@ export default function IntroAnimation({ onComplete }: { onComplete: () => void 
 
         {/* Load bar container */}
         <div className="w-full flex flex-col gap-2">
-          <div className="w-full h-px bg-[#1a2535] relative overflow-hidden">
+          <div className="w-full h-px bg-[var(--border)] relative overflow-hidden">
             <div
               className="absolute inset-y-0 left-0 bg-[#00d4ff] transition-all duration-300"
               style={{
@@ -119,7 +119,7 @@ export default function IntroAnimation({ onComplete }: { onComplete: () => void 
           </div>
 
           {/* Thick bar */}
-          <div className="w-full h-[3px] bg-[#0d1117] relative overflow-hidden">
+          <div className="w-full h-[3px] bg-[var(--surface)] relative overflow-hidden">
             <div
               className="absolute inset-y-0 left-0 transition-all duration-300"
               style={{
@@ -142,7 +142,7 @@ export default function IntroAnimation({ onComplete }: { onComplete: () => void 
           {/* Progress text */}
           <div className="flex justify-between items-center">
             <span
-              className="text-[#7a9bb5] text-[10px] tracking-widest uppercase"
+              className="text-[var(--text-dim)] text-[10px] tracking-widest uppercase"
               style={{ fontFamily: "var(--font-share-tech)" }}
             >
               {progress < 35

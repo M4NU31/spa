@@ -17,7 +17,7 @@ const SERVER_CONFIG = [
 // ─────────────────────────────────────────────────────────────────
 
 function Dot({ online, loading }: { online: boolean; loading: boolean }) {
-  if (loading) return <span className="w-1.5 h-1.5 rounded-full bg-[#1a2535] animate-pulse block" />;
+  if (loading) return <span className="w-1.5 h-1.5 rounded-full bg-[var(--border)] animate-pulse block" />;
   return (
     <span
       className={`w-1.5 h-1.5 rounded-full block ${online ? "bg-emerald-400 animate-pulse" : "bg-red-500/60"}`}
@@ -30,7 +30,7 @@ export default function ServerStatusWidget() {
   const { t } = useLang();
 
   return (
-    <div className="border border-[#1a2535] bg-[#070b0f]/85 backdrop-blur p-4 hud-corners">
+    <div className="border border-[var(--border)] bg-[var(--bg)]/85 backdrop-blur p-4 hud-corners">
       <div className="flex items-center justify-between mb-3">
         <span
           className="text-[#00d4ff] text-[10px] tracking-widest uppercase"
@@ -47,7 +47,7 @@ export default function ServerStatusWidget() {
             <div className="flex items-center gap-2">
               <Dot online={s.online} loading={s.loading} />
               <span
-                className="text-[#7a9bb5] text-[11px]"
+                className="text-[var(--text-dim)] text-[11px]"
                 style={{ fontFamily: "var(--font-share-tech)" }}
               >
                 {s.label}
@@ -95,7 +95,7 @@ export default function ServerStatusWidget() {
       </div>
 
       <div
-        className="mt-3 pt-2 border-t border-[#1a2535] text-[#1a2535] text-[9px] tracking-widest"
+        className="mt-3 pt-2 border-t border-[var(--border)] text-[#1a2535] text-[9px] tracking-widest"
         style={{ fontFamily: "var(--font-share-tech)" }}
       >
         {t.statusWidget.updatesEvery}

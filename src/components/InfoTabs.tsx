@@ -18,15 +18,15 @@ type Tab = {
 function ModCard({ name, desc, category, index }: { name: string; desc: string; category: string; index: number }) {
   return (
     <motion.div
-      className="border border-[#1a2535] hover:border-[#00d4ff]/30 bg-[#070b0f] p-4 transition-all duration-200"
+      className="border border-[var(--border)] hover:border-[#00d4ff]/30 bg-[var(--bg)] p-4 transition-all duration-200"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3, delay: index * 0.06 }}
       whileHover={{ y: -3 }}
     >
       <div className="text-[#00d4ff] text-[10px] tracking-widest uppercase mb-1" style={{ fontFamily: "var(--font-share-tech)" }}>{category}</div>
-      <div className="text-white text-sm font-medium mb-1" style={{ fontFamily: "var(--font-orbitron)" }}>{name}</div>
-      <div className="text-[#7a9bb5] text-xs" style={{ fontFamily: "var(--font-share-tech)" }}>{desc}</div>
+      <div className="text-[var(--text)] text-sm font-medium mb-1" style={{ fontFamily: "var(--font-orbitron)" }}>{name}</div>
+      <div className="text-[var(--text-dim)] text-xs" style={{ fontFamily: "var(--font-share-tech)" }}>{desc}</div>
     </motion.div>
   );
 }
@@ -34,7 +34,7 @@ function ModCard({ name, desc, category, index }: { name: string; desc: string; 
 function RuleItem({ number, rule }: { number: number; rule: string }) {
   return (
     <motion.div
-      className="flex items-start gap-4 group py-3 border-b border-[#1a2535] last:border-0"
+      className="flex items-start gap-4 group py-3 border-b border-[var(--border)] last:border-0"
       initial={{ opacity: 0, x: -15 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay: number * 0.04 }}
@@ -45,7 +45,7 @@ function RuleItem({ number, rule }: { number: number; rule: string }) {
       >
         {String(number).padStart(2, "0")}
       </span>
-      <p className="text-[#7a9bb5] text-sm leading-relaxed group-hover:text-[#e0eaf5] transition-colors" style={{ fontFamily: "var(--font-share-tech)" }}>
+      <p className="text-[var(--text-dim)] text-sm leading-relaxed group-hover:text-[#e0eaf5] transition-colors" style={{ fontFamily: "var(--font-share-tech)" }}>
         {rule}
       </p>
     </motion.div>
@@ -65,12 +65,12 @@ function buildTabs(t: Translations): Tab[] {
           {t.info.rates.map((group, gi) => (
             <motion.div
               key={group.title}
-              className="border border-[#1a2535] bg-[#070b0f]"
+              className="border border-[var(--border)] bg-[var(--bg)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: gi * 0.08 }}
             >
-              <div className="border-b border-[#1a2535] px-4 py-2">
+              <div className="border-b border-[var(--border)] px-4 py-2">
                 <span className="text-[#00d4ff] text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-share-tech)" }}>
                   {group.title}
                 </span>
@@ -78,8 +78,8 @@ function buildTabs(t: Translations): Tab[] {
               <div className="p-4 space-y-2">
                 {group.items.map((item) => (
                   <div key={item.label} className="flex justify-between items-center">
-                    <span className="text-[#7a9bb5] text-sm" style={{ fontFamily: "var(--font-share-tech)" }}>{item.label}</span>
-                    <span className="text-white text-sm font-medium" style={{ fontFamily: "var(--font-orbitron)" }}>{item.value}</span>
+                    <span className="text-[var(--text-dim)] text-sm" style={{ fontFamily: "var(--font-share-tech)" }}>{item.label}</span>
+                    <span className="text-[var(--text)] text-sm font-medium" style={{ fontFamily: "var(--font-orbitron)" }}>{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -100,7 +100,7 @@ function buildTabs(t: Translations): Tab[] {
       icon: <BookOpen size={16} />,
       content: (
         <div>
-          <div className="mb-4 text-[#7a9bb5] text-sm" style={{ fontFamily: "var(--font-share-tech)" }}>
+          <div className="mb-4 text-[var(--text-dim)] text-sm" style={{ fontFamily: "var(--font-share-tech)" }}>
             {t.info.rulesDisclaimer}
           </div>
           {t.info.rules.map((rule, i) => <RuleItem key={i} number={i + 1} rule={rule} />)}
@@ -118,7 +118,7 @@ function TabSlider({ tabs }: { tabs: Tab[] }) {
   return (
     <>
       <motion.div
-        className="flex items-stretch border-b border-[#1a2535] mb-8"
+        className="flex items-stretch border-b border-[var(--border)] mb-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -131,7 +131,7 @@ function TabSlider({ tabs }: { tabs: Tab[] }) {
             className={`flex items-center gap-2.5 px-6 py-4 text-sm tracking-wider uppercase transition-all duration-200 whitespace-nowrap border-b-2 -mb-px ${
               activeTab === tab.id
                 ? "text-[#00d4ff] border-[#00d4ff] bg-[#00d4ff]/5"
-                : "text-[#7a9bb5] border-transparent hover:text-[#e0eaf5] hover:border-[#1a2535]"
+                : "text-[var(--text-dim)] border-transparent hover:text-[#e0eaf5] hover:border-[var(--border)]"
             }`}
             style={{ fontFamily: "var(--font-share-tech)" }}
           >
@@ -142,7 +142,7 @@ function TabSlider({ tabs }: { tabs: Tab[] }) {
       </motion.div>
 
       <motion.div
-        className="hud-corners border border-[#1a2535] bg-[#070b0f]/80 p-6 md:p-8 min-h-[400px]"
+        className="hud-corners border border-[var(--border)] bg-[var(--bg)]/80 p-6 md:p-8 min-h-[400px]"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -176,7 +176,7 @@ function Accordion({ tabs }: { tabs: Tab[] }) {
           <motion.div
             key={tab.id}
             className={`border transition-colors duration-200 ${
-              isOpen ? "border-[#00d4ff]/40 bg-[#070b0f]" : "border-[#1a2535] bg-[#0d1117]/60"
+              isOpen ? "border-[#00d4ff]/40 bg-[var(--bg)]" : "border-[var(--border)] bg-[var(--surface)]/60"
             }`}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -189,12 +189,12 @@ function Accordion({ tabs }: { tabs: Tab[] }) {
               onClick={() => setOpen(isOpen ? null : tab.id)}
             >
               <div className="flex items-center gap-3">
-                <span className={`transition-colors duration-200 ${isOpen ? "text-[#00d4ff]" : "text-[#7a9bb5]"}`}>
+                <span className={`transition-colors duration-200 ${isOpen ? "text-[#00d4ff]" : "text-[var(--text-dim)]"}`}>
                   {tab.icon}
                 </span>
                 <span
                   className={`text-sm tracking-wider uppercase font-medium transition-colors duration-200 ${
-                    isOpen ? "text-[#00d4ff]" : "text-[#7a9bb5]"
+                    isOpen ? "text-[#00d4ff]" : "text-[var(--text-dim)]"
                   }`}
                   style={{ fontFamily: "var(--font-share-tech)" }}
                 >
@@ -244,7 +244,7 @@ export default function InfoTabs() {
   const { t } = useLang();
   const tabData = buildTabs(t);
   return (
-    <section id="info" className="relative py-24 bg-[#0d1117] overflow-hidden">
+    <section id="info" className="relative py-24 bg-[var(--surface)] overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30" />
 
       {/* Scan line + flares */}
@@ -268,7 +268,7 @@ export default function InfoTabs() {
             <span className="h-px w-12 bg-[#00d4ff]" />
             {t.info.sectionLabel}
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white" style={{ fontFamily: "var(--font-orbitron)" }}>
+          <h2 className="text-4xl md:text-5xl font-black text-[var(--text)]" style={{ fontFamily: "var(--font-orbitron)" }}>
             {t.info.title} <span className="text-[#00d4ff] glow-cyan-text">{t.info.titleHighlight}</span>
           </h2>
           <DrawLine className="mt-5 max-w-[160px]" delay={0.3} />
