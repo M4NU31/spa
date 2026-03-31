@@ -7,7 +7,7 @@ import { Flare, ScanLine, DrawLine } from "./SceneEffects";
 import { useLang } from "@/context/LanguageContext";
 
 const PACKAGES = [
-  { coins: 1000, price: 10, popular: false, color: "#00d4ff",  buttonId: "Q3AQ4BTRA3NHJ" },
+  { coins: 1000, price: 10, popular: false, color: "#00d4ff",  buttonId: "7PSBD3V4S37CN" },
   { coins: 2000, price: 18, popular: true,  color: "#a855f7",  buttonId: "" }, // add PayPal button ID
   { coins: 3000, price: 26, popular: false, color: "#f59e0b",  buttonId: "" }, // add PayPal button ID
 ];
@@ -21,14 +21,11 @@ function PayPalButton({ buttonId, label }: { buttonId: string; label: string }) 
   );
   return (
     <form
-      action="https://www.paypal.com/cgi-bin/webscr"
+      action={`https://www.paypal.com/ncp/payment/${buttonId}`}
       method="post"
-      target="_top"
+      target="_blank"
       className="mt-auto"
     >
-      <input type="hidden" name="cmd" value="_s-xclick" />
-      <input type="hidden" name="hosted_button_id" value={buttonId} />
-      <input type="hidden" name="currency_code" value="USD" />
       <button
         type="submit"
         className="w-full flex items-center justify-center gap-2 py-3 px-6 font-bold text-sm tracking-widest uppercase transition-all duration-200 hover:opacity-90 bg-[#009cde] text-white"

@@ -85,6 +85,20 @@ export const translations = {
       ],
       note: "Las monedas se entregan manualmente por un administrador. El tiempo de entrega puede variar según la disponibilidad del staff.",
       badge: "PAGO SEGURO VÍA PAYPAL",
+      success: {
+        label: "Pago Recibido",
+        title: "¡PAGO",
+        titleHighlight: "COMPLETADO!",
+        subtitle: "Tu pago fue procesado correctamente. Sigue los pasos a continuación para recibir tus monedas.",
+        steps: [
+          { n: "01", title: "Captura tu comprobante", text: "Toma una captura de pantalla o guarda el recibo de PayPal que recibiste por correo." },
+          { n: "02", title: "Abre un ticket en Discord", text: "Ingresa a nuestro servidor de Discord y abre un ticket en el canal correspondiente." },
+          { n: "03", title: "Envía tu comprobante", text: "Adjunta la captura de pantalla del pago en el ticket. Un admin lo verificará y te entregará las monedas en el juego." },
+        ],
+        discordButton: "Abrir Ticket en Discord",
+        backButton: "Volver a la Tienda",
+        note: "El tiempo de entrega puede variar según la disponibilidad del staff. Normalmente dentro de las 24 hs.",
+      },
     },
     calendar: {
       sectionLabel: "Servidor Rotativo",
@@ -313,6 +327,20 @@ export const translations = {
       ],
       note: "Coins are delivered manually by an administrator. Delivery time may vary depending on staff availability.",
       badge: "SECURE PAYMENT VIA PAYPAL",
+      success: {
+        label: "Payment Received",
+        title: "PAYMENT",
+        titleHighlight: "COMPLETE!",
+        subtitle: "Your payment was processed successfully. Follow the steps below to receive your coins.",
+        steps: [
+          { n: "01", title: "Save your receipt", text: "Take a screenshot or save the PayPal receipt you received by email." },
+          { n: "02", title: "Open a Discord ticket", text: "Join our Discord server and open a ticket in the designated channel." },
+          { n: "03", title: "Submit your proof", text: "Attach the payment screenshot to your ticket. An admin will verify it and deliver your coins in-game." },
+        ],
+        discordButton: "Open Ticket on Discord",
+        backButton: "Back to Shop",
+        note: "Delivery time may vary depending on staff availability. Usually within 24 hours.",
+      },
     },
     calendar: {
       sectionLabel: "Rotative Server",
