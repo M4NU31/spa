@@ -13,6 +13,7 @@ const admins = [
     tag: "FOUNDER",
     color: "#00d4ff",
     badge: "★★★",
+    flag: "🇵🇪",
   },
   {
     name: "Churrumaais",
@@ -20,6 +21,7 @@ const admins = [
     tag: "CO-ADMIN",
     color: "#a855f7",
     badge: "★★",
+    flag: "🇲🇽",
   },
   {
     name: "Tyson",
@@ -27,6 +29,7 @@ const admins = [
     tag: "CO-ADMIN",
     color: "#f59e0b",
     badge: "★★",
+    flag: "🇵🇪",
   },
 ];
 
@@ -141,8 +144,9 @@ export default function AdminsSection() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-black text-white mb-1" style={{ fontFamily: "var(--font-orbitron)" }}>
+                <h3 className="text-xl font-black text-white mb-1 flex items-center gap-2" style={{ fontFamily: "var(--font-orbitron)" }}>
                   {admin.name}
+                  <span className="text-base">{admin.flag}</span>
                 </h3>
                 <div className="text-sm mb-4" style={{ color: admin.color, fontFamily: "var(--font-share-tech)" }}>
                   {admin.role}
