@@ -114,6 +114,20 @@ export const translations = {
       empty: "Sin señal de actividad detectada",
       emptySub: "El campo de batalla está en calma... por ahora. Los eventos se publicarán aquí cuando estén disponibles.",
       emptyTag: "TRANSMISIÓN EN ESPERA",
+      active: [
+        {
+          title: "SEMANA x2",
+          badge: "EVENTO ACTIVO",
+          dates: "02 ABR — 05 ABR",
+          description: "¡Todas las tasas del servidor se duplican durante este período! Aprovecha para subir nivel, domesticar y expandir tu base.",
+          rates: [
+            { label: "Experiencia", value: "x2" },
+            { label: "Domesticación", value: "x2" },
+            { label: "Reproducción", value: "x2" },
+            { label: "Recolección", value: "x2" },
+          ],
+        },
+      ],
     },
     info: {
       sectionLabel: "Info del Servidor",
@@ -356,6 +370,20 @@ export const translations = {
       empty: "No activity signal detected",
       emptySub: "The battlefield is quiet... for now. Events will be posted here as soon as they go live.",
       emptyTag: "BROADCAST STANDING BY",
+      active: [
+        {
+          title: "x2 WEEK",
+          badge: "ACTIVE EVENT",
+          dates: "APR 02 — APR 05",
+          description: "All server rates are doubled during this period! Take advantage to level up, tame, and expand your base.",
+          rates: [
+            { label: "Experience", value: "x2" },
+            { label: "Taming", value: "x2" },
+            { label: "Breeding", value: "x2" },
+            { label: "Harvest", value: "x2" },
+          ],
+        },
+      ],
     },
     info: {
       sectionLabel: "Server Info",

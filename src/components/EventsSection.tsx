@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Radio } from "lucide-react";
+import { Radio, Zap } from "lucide-react";
 import { Flare, ScanLine, DrawLine } from "./SceneEffects";
 import { useLang } from "@/context/LanguageContext";
 
 export default function EventsSection() {
   const { t } = useLang();
+  const events = t.events.active ?? [];
 
   return (
     <section id="events" className="relative py-24 bg-[var(--bg)] overflow-hidden">
@@ -37,67 +38,132 @@ export default function EventsSection() {
           <DrawLine className="mt-5 max-w-xs" delay={0.3} />
         </motion.div>
 
-        {/* Empty state */}
-        <motion.div
-          className="relative border border-[var(--border)] bg-[var(--surface)]/60 flex flex-col items-center justify-center py-20 px-6 overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          {/* Animated corner accents */}
-          {["top-0 left-0 border-t border-l", "top-0 right-0 border-t border-r", "bottom-0 left-0 border-b border-l", "bottom-0 right-0 border-b border-r"].map((cls, i) => (
-            <div key={i} className={`absolute w-6 h-6 border-[#00d4ff]/30 ${cls}`} />
-          ))}
+        {events.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {events.map((ev, i) => (
+              <motion.div
+                key={i}
+                className="relative border border-[#00d4ff]/30 bg-[var(--surface)] overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+              >
+                {/* Top glow bar */}
+                <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent" />
 
-          {/* Pulsing icon */}
-          <motion.div
-            className="relative mb-6 flex items-center justify-center w-16 h-16"
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <div className="absolute inset-0 border border-[#00d4ff]/20 rotate-45" />
-            <Radio size={24} className="text-[#00d4ff]/50 relative z-10" />
-          </motion.div>
+                {/* Animated corner accents */}
+                {["top-0 left-0 border-t border-l", "top-0 right-0 border-t border-r", "bottom-0 left-0 border-b border-l", "bottom-0 right-0 border-b border-r"].map((cls, j) => (
+                  <div key={j} className={`absolute w-4 h-4 border-[#00d4ff]/40 ${cls}`} />
+                ))}
 
-          {/* Tag */}
-          <div
-            className="text-[10px] tracking-[0.4em] uppercase text-[#00d4ff]/50 mb-4 flex items-center gap-2"
-            style={{ fontFamily: "var(--font-share-tech)" }}
-          >
-            <motion.span
-              className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]/40"
-              animate={{ opacity: [0.2, 1, 0.2] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-            {t.events.emptyTag}
-            <motion.span
-              className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]/40"
-              animate={{ opacity: [1, 0.2, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
+                <div className="p-8">
+                  {/* Badge + dates */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <motion.span
+                        className="w-2 h-2 rounded-full bg-[#00d4ff]"
+                        animate={{ opacity: [1, 0.2, 1] }}
+                        transition={{ duration: 1.2, repeat: Infinity }}
+                      />
+                      <span
+                        className="text-[10px] tracking-[0.4em] uppercase text-[#00d4ff]"
+                        style={{ fontFamily: "var(--font-share-tech)" }}
+                      >
+                        {ev.badge}
+                      </span>
+                    </div>
+                    <span
+                      className="text-[10px] tracking-widest uppercase text-[var(--text-dim)] border border-[var(--border)] px-2 py-0.5"
+                      style={{ fontFamily: "var(--font-share-tech)" }}
+                    >
+                      {ev.dates}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3
+                    className="text-3xl font-black text-[var(--text)] mb-3"
+                    style={{ fontFamily: "var(--font-orbitron)" }}
+                  >
+                    {ev.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p
+                    className="text-[var(--text-dim)] text-sm leading-relaxed mb-6"
+                    style={{ fontFamily: "var(--font-share-tech)" }}
+                  >
+                    {ev.description}
+                  </p>
+
+                  {/* Rate pills */}
+                  <div className="grid grid-cols-2 gap-2">
+                    {ev.rates.map((rate) => (
+                      <div
+                        key={rate.label}
+                        className="flex items-center justify-between border border-[#00d4ff]/20 bg-[#00d4ff]/5 px-3 py-2"
+                      >
+                        <span
+                          className="text-[11px] tracking-widest uppercase text-[var(--text-dim)]"
+                          style={{ fontFamily: "var(--font-share-tech)" }}
+                        >
+                          {rate.label}
+                        </span>
+                        <span
+                          className="text-[#00d4ff] font-black text-sm"
+                          style={{ fontFamily: "var(--font-orbitron)" }}
+                        >
+                          {rate.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
-
-          <h3
-            className="text-xl md:text-2xl font-black text-[var(--text)]/60 text-center mb-3"
-            style={{ fontFamily: "var(--font-orbitron)" }}
-          >
-            {t.events.empty}
-          </h3>
-          <p
-            className="text-[var(--text-dim)] text-sm text-center max-w-md"
-            style={{ fontFamily: "var(--font-share-tech)" }}
-          >
-            {t.events.emptySub}
-          </p>
-
-          {/* Decorative scan line */}
+        ) : (
+          /* Empty state */
           <motion.div
-            className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff]/10 to-transparent"
-            animate={{ top: ["10%", "90%", "10%"] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          />
-        </motion.div>
+            className="relative border border-[var(--border)] bg-[var(--surface)]/60 flex flex-col items-center justify-center py-20 px-6 overflow-hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            {["top-0 left-0 border-t border-l", "top-0 right-0 border-t border-r", "bottom-0 left-0 border-b border-l", "bottom-0 right-0 border-b border-r"].map((cls, i) => (
+              <div key={i} className={`absolute w-6 h-6 border-[#00d4ff]/30 ${cls}`} />
+            ))}
+            <motion.div
+              className="relative mb-6 flex items-center justify-center w-16 h-16"
+              animate={{ opacity: [0.4, 1, 0.4] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="absolute inset-0 border border-[#00d4ff]/20 rotate-45" />
+              <Radio size={24} className="text-[#00d4ff]/50 relative z-10" />
+            </motion.div>
+            <div
+              className="text-[10px] tracking-[0.4em] uppercase text-[#00d4ff]/50 mb-4 flex items-center gap-2"
+              style={{ fontFamily: "var(--font-share-tech)" }}
+            >
+              <motion.span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]/40" animate={{ opacity: [0.2, 1, 0.2] }} transition={{ duration: 1.5, repeat: Infinity }} />
+              {t.events.emptyTag}
+              <motion.span className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]/40" animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
+            </div>
+            <h3 className="text-xl md:text-2xl font-black text-[var(--text)]/60 text-center mb-3" style={{ fontFamily: "var(--font-orbitron)" }}>
+              {t.events.empty}
+            </h3>
+            <p className="text-[var(--text-dim)] text-sm text-center max-w-md" style={{ fontFamily: "var(--font-share-tech)" }}>
+              {t.events.emptySub}
+            </p>
+            <motion.div
+              className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff]/10 to-transparent"
+              animate={{ top: ["10%", "90%", "10%"] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+            />
+          </motion.div>
+        )}
       </div>
     </section>
   );
