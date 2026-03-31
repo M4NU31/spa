@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { MessageCircle, Shield } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Flare, ScanLine, DrawLine } from "./SceneEffects";
 import { useLang } from "@/context/LanguageContext";
@@ -13,7 +13,7 @@ const admins = [
     tag: "FOUNDER",
     color: "#00d4ff",
     badge: "★★★",
-    flag: "🇵🇪",
+    flag: "pe",
   },
   {
     name: "Churrumaais",
@@ -21,7 +21,7 @@ const admins = [
     tag: "CO-ADMIN",
     color: "#a855f7",
     badge: "★★",
-    flag: "🇲🇽",
+    flag: "mx",
   },
   {
     name: "Tyson",
@@ -29,7 +29,7 @@ const admins = [
     tag: "CO-ADMIN",
     color: "#f59e0b",
     badge: "★★",
-    flag: "🇵🇪",
+    flag: "pe",
   },
 ];
 
@@ -118,7 +118,12 @@ export default function AdminsSection() {
                         className="absolute inset-0 opacity-20"
                         style={{ background: `radial-gradient(circle, ${admin.color}, transparent)` }}
                       />
-                      <Shield size={28} className="relative z-10" style={{ color: admin.color }} />
+                      <span
+                        className="text-2xl font-black relative z-10"
+                        style={{ color: admin.color, fontFamily: "var(--font-orbitron)" }}
+                      >
+                        {admin.name[0]}
+                      </span>
                     </div>
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-400 border-2 border-[#0d1117] rounded-full animate-pulse" />
                   </div>
@@ -141,7 +146,13 @@ export default function AdminsSection() {
 
                 <h3 className="text-xl font-black text-white mb-1 flex items-center gap-2" style={{ fontFamily: "var(--font-orbitron)" }}>
                   {admin.name}
-                  <span className="text-base">{admin.flag}</span>
+                  <img
+                    src={`https://flagcdn.com/w20/${admin.flag}.png`}
+                    alt={admin.flag}
+                    width={20}
+                    height={14}
+                    className="inline-block rounded-sm"
+                  />
                 </h3>
                 <div className="text-sm mb-4" style={{ color: admin.color, fontFamily: "var(--font-share-tech)" }}>
                   {admin.role}
