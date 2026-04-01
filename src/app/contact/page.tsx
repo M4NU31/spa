@@ -27,16 +27,40 @@ function ContactForm() {
     }
   }, [searchParams]);
 
+  const SUBJECT_LABELS: Record<string, string> = {
+    bug: "Bug Report",
+    player: "Player Report",
+    ban: "Ban Appeal",
+    contact: "General Contact",
+  };
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!subject) return;
     setStatus("sending");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ characterName, subject, message }),
-      });
+      const res = await fetch(
+        "https://discord.com/api/webhooks/1488738396242182167/XQ9aAjg3jZMmjraIOQmsUvJkGe2uGt1uTycunxA-90wNBLFtgEhYp5e8HfxzW-9a7SJ0",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            embeds: [
+              {
+                title: `📬 New Contact Form: ${SUBJECT_LABELS[subject] ?? subject}`,
+                color: 0x00d4ff,
+                fields: [
+                  { name: "Character Name", value: characterName, inline: true },
+                  { name: "Subject", value: SUBJECT_LABELS[subject] ?? subject, inline: true },
+                  { name: "Message", value: message },
+                ],
+                footer: { text: "Sephirot Ark · Contact Form" },
+                timestamp: new Date().toISOString(),
+              },
+            ],
+          }),
+        }
+      );
       setStatus(res.ok ? "success" : "error");
     } catch {
       setStatus("error");
