@@ -29,10 +29,10 @@ export default function Footer() {
     {
       group: t.footer.groups.support,
       links: [
-        { label: t.footer.links.bugReport,    href: "#" },
-        { label: t.footer.links.playerReport, href: "#" },
-        { label: t.footer.links.banAppeal,    href: "#" },
-        { label: t.footer.links.contact,      href: "#" },
+        { label: t.footer.links.bugReport,    href: "/contact?subject=bug" },
+        { label: t.footer.links.playerReport, href: "/contact?subject=player" },
+        { label: t.footer.links.banAppeal,    href: "/contact?subject=ban" },
+        { label: t.footer.links.contact,      href: "/contact" },
       ],
     },
   ];
