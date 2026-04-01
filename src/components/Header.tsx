@@ -55,7 +55,7 @@ export default function Header() {
     { label: t.nav.maps,    href: "#maps" },
     { label: t.nav.info,    href: "#info" },
     { label: t.nav.admins,  href: "#admins" },
-    { label: t.nav.contact, href: "#footer" },
+    { label: t.nav.contact, href: "/contact" },
   ];
 
   const shopLabel = t.nav.shop;
