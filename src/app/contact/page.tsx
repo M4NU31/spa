@@ -16,6 +16,7 @@ function ContactForm() {
   const searchParams = useSearchParams();
 
   const [characterName, setCharacterName] = useState("");
+  const [discordNick, setDiscordNick] = useState("");
   const [subject, setSubject] = useState<Subject>("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -51,6 +52,7 @@ function ContactForm() {
                 color: 0x00d4ff,
                 fields: [
                   { name: "Character Name", value: characterName, inline: true },
+                  { name: "Discord", value: discordNick, inline: true },
                   { name: "Subject", value: SUBJECT_LABELS[subject] ?? subject, inline: true },
                   { name: "Message", value: message },
                 ],
@@ -194,6 +196,25 @@ function ContactForm() {
                     value={characterName}
                     onChange={(e) => setCharacterName(e.target.value)}
                     placeholder={c.fields.characterNamePlaceholder}
+                    className={inputClass}
+                    style={{ fontFamily: "var(--font-share-tech)" }}
+                  />
+                </div>
+
+                {/* Discord Nick */}
+                <div>
+                  <label
+                    className="block text-[10px] tracking-[0.3em] uppercase text-[#00d4ff] mb-2"
+                    style={{ fontFamily: "var(--font-share-tech)" }}
+                  >
+                    {c.fields.discordNick}
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={discordNick}
+                    onChange={(e) => setDiscordNick(e.target.value)}
+                    placeholder={c.fields.discordNickPlaceholder}
                     className={inputClass}
                     style={{ fontFamily: "var(--font-share-tech)" }}
                   />

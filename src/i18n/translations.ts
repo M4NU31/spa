@@ -262,6 +262,8 @@ export const translations = {
       fields: {
         characterName: "Nombre de Personaje",
         characterNamePlaceholder: "Tu nombre en el servidor",
+        discordNick: "Usuario de Discord",
+        discordNickPlaceholder: "tu_usuario#0000",
         subject: "Asunto",
         subjectPlaceholder: "— Selecciona un Asunto —",
         subjects: {
@@ -546,6 +548,8 @@ export const translations = {
       fields: {
         characterName: "Character Name",
         characterNamePlaceholder: "Your in-game name",
+        discordNick: "Discord Username",
+        discordNickPlaceholder: "your_username#0000",
         subject: "Subject",
         subjectPlaceholder: "— Select a Subject —",
         subjects: {
