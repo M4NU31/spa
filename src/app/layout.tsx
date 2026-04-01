@@ -57,6 +57,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <SmoothScroll />
         <LanguageProvider>{children}</LanguageProvider>
+        <script src="https://darkgoldenrod-duck-369698.hostingersite.com/embed/punchbug.js" data-key="pb_oc4gjoqx4fn_mng3hh6p" async />
       </body>
     </html>
   );
