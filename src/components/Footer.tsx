@@ -20,7 +20,7 @@ export default function Footer() {
     {
       group: t.footer.groups.community,
       links: [
-        { label: t.footer.links.discord, href: "https://discord.gg" },
+        { label: t.footer.links.discord, href: "https://discord.sephirotark.com" },
         { label: t.footer.links.admins,  href: "#admins" },
         { label: t.footer.links.events,  href: "#" },
         { label: t.footer.links.vote,    href: "#" },
@@ -81,7 +81,7 @@ export default function Footer() {
 
             {/* Discord button */}
             <a
-              href="https://discord.gg"
+              href="https://discord.sephirotark.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 border border-[#5865F2]/60 text-[#5865F2] hover:bg-[#5865F2]/10 text-xs tracking-widest uppercase transition-all duration-200"

@@ -146,8 +146,8 @@ export default function HeroBanner() {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18vw] font-black text-[var(--text)]/[0.04] select-none whitespace-nowrap pointer-events-none z-[2]"
         style={{ fontFamily: "var(--font-orbitron)", y: bgY }}
       >
-        ARK
-      </motion.div>
+        SEPHIROT
+</motion.div>
 
       {/* Right info panel */}
       <motion.div

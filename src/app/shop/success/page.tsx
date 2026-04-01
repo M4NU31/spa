@@ -131,7 +131,7 @@ export default function PaymentSuccessPage() {
             transition={{ duration: 0.5, delay: 0.7 }}
           >
             <a
-              href="https://discord.gg"
+              href="https://discord.sephirotark.com"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-3 py-4 px-8 font-bold text-sm tracking-widest uppercase bg-[#5865F2] hover:bg-[#4752c4] text-white transition-colors duration-200 mb-4"

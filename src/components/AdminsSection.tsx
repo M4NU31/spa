@@ -182,7 +182,7 @@ export default function AdminsSection() {
             </div>
           </div>
           <a
-            href="https://discord.gg"
+            href="https://discord.sephirotark.com"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2.5 border border-[#00d4ff] text-[#00d4ff] text-xs tracking-widest uppercase hover:bg-[#00d4ff]/10 transition-all duration-200 whitespace-nowrap"

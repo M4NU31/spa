@@ -132,7 +132,7 @@ export default function Header() {
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <a
-            href="https://discord.gg"
+            href="https://discord.sephirotark.com"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2 border border-[#00d4ff] text-[#00d4ff] text-xs tracking-[0.15em] uppercase font-medium clip-top-right hover:bg-[#00d4ff]/10 transition-all duration-200 animate-pulse-glow"
@@ -209,7 +209,7 @@ export default function Header() {
           <div className="px-10 py-8 flex items-center justify-between border-t border-[var(--border)]">
             <LangToggle />
             <a
-              href="https://discord.gg"
+              href="https://discord.sephirotark.com"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-5 py-2 border border-[#00d4ff] text-[#00d4ff] text-xs tracking-[0.15em] uppercase hover:bg-[#00d4ff]/10 transition-all duration-200"
