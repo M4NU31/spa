@@ -58,6 +58,7 @@ export default function RootLayout({
         <SmoothScroll />
         <LanguageProvider>{children}</LanguageProvider>
         <script src="https://darkgoldenrod-duck-369698.hostingersite.com/embed/punchbug.js" data-key="pb_01ot5vkwpxxp_mngst6ls" async />
+        <script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=bkz7g7jmhanezxqeoskuuq" async="true"></script>
       </body>
     </html>
   );
