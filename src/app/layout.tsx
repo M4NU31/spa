@@ -59,7 +59,7 @@ export default function RootLayout({
         <LanguageProvider>{children}</LanguageProvider>
         <script
           src="https://darkgoldenrod-duck-369698.hostingersite.com/embed/punchbug.js"
-          data-key="pb_1p4632sseu6_mnl9iizb"
+          data-key="pb_3zcuungy6cb_mnldkmt5"
           data-screenshot-server="http://148.230.86.205:8000"
           async></script>
 
