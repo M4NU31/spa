@@ -10,7 +10,7 @@ import { useLang } from "@/context/LanguageContext";
 const SERVER_CONFIG = [
   { label: "Astreos",  bmId: "38004563" },
   { label: "Valguero", bmId: "38491127" },
-  { label: "Rotative", bmId: "38493137", rotative: true },
+  { label: "Rotative", bmId: "38541632", rotative: true },
 ];
 
 const maps = [
